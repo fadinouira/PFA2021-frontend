@@ -7,49 +7,63 @@
                 <span class="navbar-toggler-bar"></span>
                 <span class="navbar-toggler-bar"></span>
             </button>
-
-            
-            
         </div>
         <div class="navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ml-auto">
-                
-                <li class="nav-item" >
-                    <a class="nav-link" rel="tooltip"  data-placement="bottom" href="#">
+                <li class="nav-item active" >
+                    <a [routerLink]="['home']" class="nav-link" rel="tooltip" title="Home" data-placement="bottom" href="#" >
                         Home
                     </a>
                 </li>
-                <li class="nav-item" >
-                    <a class="nav-link" rel="tooltip"  data-placement="bottom" href="#">
-                        About us
-                    </a>
-                </li>
-                <li class="nav-item" >
-                    <a class="nav-link" rel="tooltip" data-placement="bottom" href="#">
-                        Contact us 
-                    </a>
-                </li> 
-            </ul>
-
-            
-            <form class="form-inline my-2 my-lg-0">
-                <input type="text" id="searchInput" placeholder="Search..">
-                <div id='submitsearch'>
-                    <span>Search</span>
+                <div class="menu-wrap">
+                    <li class="nav-item" >
+                        <div ngbDropdown class="d-inline-block ">
+                            <a  [routerLink]="" class="nav-link" rel="tooltip" title="Stadium" data-placement="bottom" href="#" id="dropdownBasic1" ngbDropdownToggle>deliveries</a>
+                            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button class="dropdown-item" [routerLink]="['']" ngbDropdownItem>Deliveries List</button>
+                                <button class="dropdown-item" [routerLink]="['']" ngbDropdownItem>Delivery Jobs</button>
+                                <button class="dropdown-item" [routerLink]="['']" ngbDropdownItem>Delivery Drivers</button>
+                            </div>
+                        </div>
+                    </li>
                 </div>
-            </form>
-            
-            <ul class="navbar-nav ml-auto" *ngIf="!isLogged">
-                <li class="nav-item" >
-                    <a target="_blank" class="btn btn-danger btn-round">Sign in</a>
+               
+                <li class="nav-item active" >
+                    <a [routerLink]="['about']" class="nav-link" rel="tooltip" title="About" data-placement="bottom" href="#" >
+                        About
+                    </a>
                 </li>
-            </ul>
-
-            <ul class="navbar-nav ml-auto" *ngIf="isLogged">
                 <li class="nav-item" >
-                    <a target="_blank" class="btn btn-danger btn-round">User Name</a>
+                    <a [routerLink]="['contact']" class="nav-link" rel="tooltip" title="Contact" data-placement="bottom" href="#" >
+                        Contact
+                    </a>
                 </li>
-            </ul>
-        </div>
+                
+                <li class="nav-item" >
+                    <a [routerLink]="['signin']" href="#"   class="btn btn-info btn-round " style="width:100%" >Sign In</a>
+                </li>
+               
+                <div *ngIf="false" class="btn-group"  >
+                    
+                    <button type="button" class="btn btn-info btn-round">
+                        <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Avatar" class="avatar">fedi nouira
+                    </button>
+                    
+                    <button type="button" class="btn btn-info btn-round dropdown-toggle dropdown-toggle-split"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                  
+                    <!-- <span class="sr-only">Toggle Dropdown</span> -->
+                  
+                    </button>
+                    <div class="dropdown-menu">
+                       <a class="dropdown-item dropmen" [routerLink]="['profile']" href="#">Profile</a>
+                       <a class="dropdown-item dropmen" [routerLink]="['edit-profile']" href="#">Edit profile</a>
+                       <div class="dropdown-divider"></div>
+                       <a  class="dropdown-item dropmen2"   href="#" >Log Out</a>
+                    </div>
+                 </div>
+                </ul>
+            </div>
     </div>
 </nav>
