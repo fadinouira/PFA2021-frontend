@@ -16,6 +16,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from './auth/Services/auth-interceptor';
+import { LoaderComponent } from './animations/loader/loader.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AuthInterceptor } from './auth/Services/auth-interceptor';
     NavbarComponent,
     FooterComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

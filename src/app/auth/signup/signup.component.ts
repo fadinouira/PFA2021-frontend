@@ -16,10 +16,11 @@ export class SignupComponent implements OnInit {
     name : string ;
     email : string ;
     type : string ;
+    isLoading : boolean;
   constructor(private auth: AuthService ) { }
 
   ngOnInit(): void {
-    
+    this.isLoading = false ;
   }
 
   onSwitch(a : number){
@@ -38,6 +39,7 @@ export class SignupComponent implements OnInit {
 
 
   onSubmit(form : NgForm){
+    this.isLoading = true ;
     const user : User = {
       id : null ,
       name : this.name ,
@@ -47,8 +49,9 @@ export class SignupComponent implements OnInit {
       city : form.value.city,
       type: this.type
     };
-    console.log(user);
     this.auth.addUser(user);
+    //this.isLoading = false ;  TO Do make a promise function 
+    
   }
 
 
