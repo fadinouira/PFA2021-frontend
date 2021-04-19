@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { User } from './user.model';
 import { Subject } from 'rxjs' ;
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
 import { Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
@@ -28,9 +27,10 @@ export class AuthService {
   }
 
   addUser(user : User){
-    this.http.post<{message : string}>('http://localhost:3200/api/users/signup',user)
+    this.http.post<{message : string}>('https://livkoli-server.herokuapp.com/api/auth/signup',user)
     .subscribe((response)=>{
       console.log(response.message);
+      this.logIn(user.email,user.password);
       this.router.navigate(["/"]);
     });
   }
