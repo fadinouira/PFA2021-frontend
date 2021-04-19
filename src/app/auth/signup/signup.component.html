@@ -1,0 +1,52 @@
+<section class="coloredSection">
+    <div class="container {{this.status}} " id="container">
+        <div class="form-container sign-up-container card">
+            <form action="#">
+                <h3>Complete your account</h3>*
+                <input type="text" placeholder="City" />
+                <input type="number" placeholder="Phone" />
+                <input type="password" placeholder="Repeat password" />
+                <input type="password" placeholder="Password" />
+                <br>
+                <button class="btn btn-round btn-block btn-info">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <div class="social-line text-center" style ="opacity: 90%;">
+                        <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <span>or use your account</span>
+                <input type="email" placeholder="Name & Prename" />
+                <input type="password" placeholder="Email" />
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>One More Step</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(0)">Previous</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(1)">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+

@@ -1,0 +1,31 @@
+
+.coloredSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(-45deg,  #09042f,#28105f, #51bcd5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+      }
+    50% {
+      background-position: 100% 50%;
+      }
+    100% {
+      background-position: 0% 50%;
+      }
+}
+
+.card {
+  background-color:rgb(32, 32, 63,0.6);margin:auto ;
+  .title {
+    color: #51bcd5;opacity: 100%;
+  }
+  
+}
+
