@@ -15,7 +15,8 @@
                             <i class="fa fa-twitter"></i>
                         </a>
                     </div>
-                    <form class="register-form" >
+
+                    <form class="register-form" ngForm (submit)="onSubmit(loginForm)" #loginForm="ngForm">
 
                         <label>Email</label>
                         <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -25,7 +26,18 @@
                             </span>
                         </div>
 
-                            <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                            <input 
+                                ngModel
+                                #emailInput = "ngModel" 
+                                required 
+                                type="email" 
+                                name ="email"
+                                class="form-control" 
+                                placeholder="Email" 
+                                (focus)="focus=true" 
+                                (blur)="focus=false" 
+                            >
+
                         </div>
 
                         <label>Password</label>
@@ -35,9 +47,21 @@
                                 <i class="nc-icon nc-key-25"></i>
                             </span>
                         </div>
-                            <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                        
+                            <input 
+                                ngModel
+                                #passwordInput = "ngModel" 
+                                required 
+                                name ="password"
+                                type="text" 
+                                class="form-control" 
+                                placeholder="Password" 
+                                (focus)="focus1=true" 
+                                (blur)="focus1=false" 
+                            >
+
                         </div>
-                        <button class="btn btn-info btn-block btn-round">Sign in</button>
+                        <button class="btn btn-info btn-block btn-round" >Sign in</button>
                         <button [routerLink]="['/signup']" class="btn btn-success btn-block btn-round">Sign up</button>
                     </form>
                     <div class="forgot"> 

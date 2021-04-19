@@ -39,14 +39,14 @@
                     </a>
                 </li>
                 
-                <li *ngIf="true" class="nav-item" >
+                <li *ngIf="!userLogedIn" class="nav-item" >
                     <a [routerLink]="['signin']" href="#"   class="btn btn-info btn-round " style="width:100%" >Sign In</a>
                 </li>
                
-                <div *ngIf="false" class="btn-group"  >
+                <div *ngIf="userLogedIn" class="btn-group"  >
                     
                     <button type="button" class="btn btn-info btn-round">
-                        <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Avatar" class="avatar">fedi nouira
+                        <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Avatar" class="avatar">{{userName}}
                     </button>
                     
                     <button type="button" class="btn btn-info btn-round dropdown-toggle dropdown-toggle-split"
@@ -60,7 +60,7 @@
                        <a class="dropdown-item dropmen" [routerLink]="['profile']" href="#">Profile</a>
                        <a class="dropdown-item dropmen" [routerLink]="['edit-profile']" href="#">Edit profile</a>
                        <div class="dropdown-divider"></div>
-                       <a  class="dropdown-item dropmen2"   href="#" >Log Out</a>
+                       <a  class="dropdown-item dropmen2"  href="#" (click)="onSignOut()" >Log Out</a>
                     </div>
                  </div>
                 </ul>
