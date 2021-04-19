@@ -14,6 +14,9 @@ import { ExamplesModule } from './examples/examples.module';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AuthInterceptor } from './auth/Services/auth-interceptor';
+
 
 @NgModule({
   declarations: [
@@ -31,8 +34,9 @@ import { SignupComponent } from './auth/signup/signup.component';
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [{provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

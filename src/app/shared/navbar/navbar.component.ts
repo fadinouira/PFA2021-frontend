@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { AuthService } from 'app/auth/Services/auth.service';
 
 @Component({
     selector: 'app-navbar',
@@ -9,15 +11,28 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
-    isLogged : boolean = false;
+    private authListenerSub : Subscription ;
+    private userNameSub : Subscription ;
+    userLogedIn = this.auth.getAuthStatus() ;
+    userName = this.auth.getUserName() ;
 
-    constructor(public location: Location, private element : ElementRef) {
+    constructor(public location: Location, private element : ElementRef,private auth : AuthService) {
         this.sidebarVisible = false;
     }
 
     ngOnInit() {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+
+        this.userLogedIn = this.auth.getAuthStatus() ;
+
+        this.authListenerSub = this.auth.getAuthStatesListener().subscribe(result => {
+        this.userLogedIn = result ;
+        });
+
+        this.userNameSub = this.auth.getUserNameListener().subscribe(result => {
+        this.userName = result ;
+        });
     }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
@@ -59,6 +74,12 @@ export class NavbarComponent implements OnInit {
         else {
             return false;
         }
+    }
+    ngOnDestroy() : void {
+        this.authListenerSub.unsubscribe();
+    }
+      onSignOut() : void {
+        this.auth.signOut();
     }
 
 }
