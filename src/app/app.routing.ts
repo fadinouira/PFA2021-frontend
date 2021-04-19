@@ -17,7 +17,7 @@ const routes: Routes =[
     { path: 'signup',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
-    { path: 'app-signin',      component: SigninComponent }
+    { path: 'signin',      component: SigninComponent }
 ];
 
 @NgModule({
