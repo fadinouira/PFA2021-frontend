@@ -2,7 +2,7 @@
     <div class="container {{this.status}} " id="container">
         <div class="form-container sign-up-container card">
             <form action="#">
-                <h3>Complete your account</h3>*
+                <h3>Complete your account</h3>
                 <input type="text" placeholder="City" />
                 <input type="number" placeholder="Phone" />
                 <input type="password" placeholder="Password" />
@@ -27,7 +27,7 @@
                         </a>
                     </div>
                 </div>
-                <span>or use your account</span>
+                <span>or</span>
                 <input type="email" placeholder="Name & Prename" />
                 <input type="password" placeholder="Email" />
             </form>
@@ -37,11 +37,13 @@
                 <div class="overlay-panel overlay-left">
                     <h1>One More Step</h1>
                     <p>To keep connected with us please login with your personal info</p>
+                    <br>
                     <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(0)">Previous</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>
+                    <br>
                     <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(1)">Next</button>
                 </div>
             </div>
