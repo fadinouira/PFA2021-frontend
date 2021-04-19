@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
       password: form.value.password ,
       phone : form.value.phone,
       city : form.value.city,
-      type: form.value.type
+      type: this.type
     };
     console.log(user);
     this.auth.addUser(user);
