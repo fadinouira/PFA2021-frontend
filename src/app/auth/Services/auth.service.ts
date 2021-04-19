@@ -40,7 +40,7 @@ export class AuthService {
       email : email,
       password : password
     }
-    this.http.post<{message : string,connectedUser : any, token : string, expiresIn : number}>('http://localhost:3200/api/auth/login',req)
+    this.http.post<{message : string,connectedUser : any, token : string, expiresIn : number}>('https://livkoli-server.herokuapp.com/api/auth/login',req)
       .subscribe(response =>{
         this.token = response.token ;
         if(this.token){
