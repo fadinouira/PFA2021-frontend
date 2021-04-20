@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 
 
 
-import { NucleoiconsComponent } from './nucleoicons/nucleoicons.component';
+
 import { ComponentsComponent } from './components.component';
 
 
@@ -24,7 +24,7 @@ import { ComponentsComponent } from './components.component';
     declarations: [
         ComponentsComponent,
        
-        NucleoiconsComponent,
+      
       
       
     ],

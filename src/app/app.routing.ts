@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ComponentsComponent } from './components/components.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { LandingComponent } from './examples/landing/landing.component';
-import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
@@ -15,7 +15,7 @@ const routes: Routes =[
     { path: 'home',             component: ComponentsComponent },
     { path: 'user-profile',     component: ProfileComponent },
     { path: 'landing',          component: LandingComponent },
-    { path: 'nucleoicons',      component: NucleoiconsComponent },
+   
     { path: 'signup',           component: SignupComponent },
     { path: 'signin',           component: SigninComponent }
 ];
