@@ -1,21 +1,55 @@
+<app-loader *ngIf="isLoading"></app-loader>
 <section class="coloredSection">
-    <div class="container {{this.status}} " id="container">
+    
+    <div *ngIf="!isLoading" class="container {{this.status}} " id="container">
         <div class="form-container sign-up-container card">
-            <form action="#">
+            <form action="#" #signupFormB = "ngForm" (submit)="onSubmit(signupFormB)">
                 <h3>Complete your account</h3>
-                <input type="text" placeholder="City" />
-                <input type="number" placeholder="Phone" />
-                <input type="password" placeholder="Password" />
-                <input type="password" placeholder="Repeat password" />
+
+                <input 
+                    ngModel
+                    #cityInput ="ngModel" 
+                    name="city"
+                    class="input" 
+                    type="text" 
+                    placeholder="City" 
+                />
+
+                <input
+                    ngModel
+                    #phoneInput ="ngModel" 
+                    name="phone"
+                    class="input"  
+                    type="number" 
+                    placeholder="Phone" 
+                />
+
+                <input 
+                    ngModel
+                    #passwordInput ="ngModel" 
+                    name="password"
+                    class="input" 
+                    type="password" 
+                    placeholder="Password"
+                 />
+
+                <input 
+                    ngModel
+                    #repeatPasswordInput ="ngModel" 
+                    name="repeatPassword"
+                    class="input" 
+                    type="password" 
+                    placeholder="Repeat password" 
+                />
                 <br>
                 <button class="btn btn-round btn-block btn-info">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form #signupFormA = "ngForm" (submit)="getName(signupFormA)">
                 <h1>Create Account</h1>
                 <div class="social-container">
-                    <div class="social-line text-center" style ="opacity: 90%;">
+                    <div class="social-line text-center">
                         <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
                             <i class="fa fa-facebook-square"></i>
                         </a>
@@ -28,8 +62,40 @@
                     </div>
                 </div>
                 <span>or</span>
-                <input type="email" placeholder="Name & Prename" />
-                <input type="password" placeholder="Email" />
+
+                <input
+                    ngModel
+                    #nameInput ="ngModel" 
+                    name="name"
+                    class="input" 
+                    type="text" 
+                    placeholder="Name & Prename" 
+                />
+
+                <input 
+                    ngModel
+                    #emailInput ="ngModel" 
+                    name="email"
+                    class="input" 
+                    type="email" 
+                    placeholder="Email" 
+                />
+
+                
+
+                <select 
+                    ngModel
+                    #typeInput ="ngModel" 
+                    name="type"
+                    class="form-select input" 
+                    aria-label="Default select example"
+                >
+                    <option value="">---Please select---</option>
+                    <option [ngValue]="'transporter'">Transporter</option>
+                    <option [ngValue]="'client'">Client</option>
+                </select>
+
+                <button hidden #next></button>
             </form>
         </div>
         <div class="overlay-container">
@@ -44,7 +110,7 @@
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>
                     <br>
-                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(1)">Next</button>
+                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(1) ; next.click()" >Next</button>
                 </div>
             </div>
         </div>
