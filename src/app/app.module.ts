@@ -18,12 +18,9 @@ import { SignupComponent } from './auth/signup/signup.component';
 
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from './auth/Services/auth-interceptor';
-<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
-=======
 import { LoaderComponent } from './animations/loader/loader.component';
->>>>>>> 17489793f292038397c2ee9bfc0473a1d03ac1f7
 
 
 @NgModule({
@@ -33,7 +30,7 @@ import { LoaderComponent } from './animations/loader/loader.component';
     FooterComponent,
     SigninComponent,
     SignupComponent,
-    LoaderComponent
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

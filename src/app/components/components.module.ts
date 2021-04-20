@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 
 
 import { ComponentsComponent } from './components.component';
+import { DeliveriesSectionComponent } from './deliveries-section/deliveries-section.component';
 
 
 @NgModule({
@@ -19,10 +20,13 @@ import { ComponentsComponent } from './components.component';
         NgbModule,
         NouisliderModule,
         RouterModule,
-        JwBootstrapSwitchNg2Module
+        JwBootstrapSwitchNg2Module,
+        
     ],
     declarations: [
         ComponentsComponent,
+        DeliveriesSectionComponent
+        
        
       
       
