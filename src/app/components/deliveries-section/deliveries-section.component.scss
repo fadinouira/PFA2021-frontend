@@ -22,8 +22,9 @@ $black: #343A40;
 
 // Base styles
 .card {
-  margin: 0.5%;
-  min-width: 100px;
+  margin-left:1%;
+  margin-top: 3%;
+  width: auto;
   .menu-content {
     @include cf;
     margin: 0;
@@ -47,8 +48,7 @@ $black: #343A40;
   }
   .wrapper {
     background-color: $white;
-    min-width: 240px;
-    min-height: 450px;
+    min-height: 320px;
     position: relative;
     overflow: hidden;
     width : 100%;
