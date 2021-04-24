@@ -21,6 +21,10 @@ import { AuthInterceptor } from './auth/Services/auth-interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { LoaderComponent } from './animations/loader/loader.component';
+import { MessagesComponent } from './notifications/messages/messages.component';
+import { NotificationsComponent } from './notifications/notifications/notifications.component';
+import { MessagesService } from './notifications/services/messages.service';
+import { WebSocketService } from './notifications/services/web-socket.service';
 
 
 @NgModule({
@@ -31,6 +35,8 @@ import { LoaderComponent } from './animations/loader/loader.component';
     SigninComponent,
     SignupComponent,
     LoaderComponent,
+    MessagesComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,7 @@ import { LoaderComponent } from './animations/loader/loader.component';
     BrowserAnimationsModule,
     MatGridListModule
   ],
-  providers: [{provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi : true}],
+  providers: [{provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi : true},MessagesService,WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

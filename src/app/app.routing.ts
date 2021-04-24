@@ -9,6 +9,9 @@ import { LandingComponent } from './examples/landing/landing.component';
 
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
+
+import { MessagesComponent } from './notifications/messages/messages.component';
+
 import { AuthGuard } from './auth/Services/auth.guard';
 
 const routes: Routes =[
@@ -16,7 +19,7 @@ const routes: Routes =[
     { path: 'home',             component: ComponentsComponent },
     { path: 'user-profile',     component: ProfileComponent , canActivate:[AuthGuard]},
     { path: 'landing',          component: LandingComponent },
-   
+    { path: 'messages',          component: MessagesComponent },
     { path: 'signup',           component: SignupComponent },
     { path: 'signin',           component: SigninComponent }
 ];
