@@ -20,9 +20,9 @@
                         <div ngbDropdown class="d-inline-block ">
                             <a  [routerLink]="" class="nav-link" rel="tooltip" title="Stadium" data-placement="bottom" href="#" id="dropdownBasic1" ngbDropdownToggle>deliveries</a>
                             <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                <button class="dropdown-item" [routerLink]="['']" ngbDropdownItem>Deliveries List</button>
-                                <button class="dropdown-item" [routerLink]="['']" ngbDropdownItem>Delivery Jobs</button>
-                                <button class="dropdown-item" [routerLink]="['']" ngbDropdownItem>Delivery Drivers</button>
+                                <button class="dropdown-item dropmen" [routerLink]="['']" ngbDropdownItem>Deliveries List</button>
+                                <button class="dropdown-item dropmen" [routerLink]="['']" ngbDropdownItem>Delivery Jobs</button>
+                                <button class="dropdown-item dropmen" [routerLink]="['']" ngbDropdownItem>Delivery Drivers</button>
                             </div>
                         </div>
                     </li>
@@ -46,14 +46,14 @@
                 <div *ngIf="userLogedIn" class="btn-group"  >
                     
                     <button type="button" class="btn btn-info btn-round">
-                        <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Avatar" class="avatar">{{userName}}
+                        <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Avatar" class="avatar">{{" "+userName}}
                     </button>
                     
                     <button type="button" class="btn btn-info btn-round dropdown-toggle dropdown-toggle-split"
                        data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                   
-                    <!-- <span class="sr-only">Toggle Dropdown</span> -->
+                    <span class="sr-only">Toggle Dropdown</span> 
                   
                     </button>
                     <div class="dropdown-menu">
