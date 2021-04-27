@@ -1,140 +1,104 @@
 
-// Variables
-$regal-blue: #343A40;
-$san-juan: #51BCDA;
-$bermuda: #77d7b9;
-$white: #fff;
-$black: #343A40;
-// clear-fix mixin
-@mixin cf {
-  &::before,
-  &::after {
-    content: '';
-    display: table;
-  }
-  &::after {
-    clear: both;
-  }
+
+.card{
+  box-shadow: 0 0 30px rgba(0,0,0, .3);
+  height: 400px;
+  
+}
+.card-header{
+  position: relative;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../../assets/img/faces/kaci-baum-2.jpg"),
 }
 
 
-
-
-// Base styles
-.card {
-  margin-left:1%;
-  margin-top: 3%;
-  width: auto;
-  .menu-content {
-    @include cf;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    li {
-      display: inline-block;
-    }
-    a {
-      color: $white;
-    }
-    span {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      font-size: 10px;
-      font-weight: 700;
-      font-family: 'Open Sans';
-      transform: translate(-50%, 0);
-    }
-  }
-  .wrapper {
-    background-color: $white;
-    min-height: 320px;
-    position: relative;
-    overflow: hidden;
-    width : 100%;
-    box-shadow: 0 19px 38px rgba($black, 0.3), 0 15px 12px rgba($black, 0.2);
-    &:hover {
-      .data {
-        transform: translateY(0);
-      }
-    }
-  }
-  .data {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    transform: translateY(calc(70px + 1em));
-    transition: transform 0.3s;
-    .content {
-      padding: 1em;
-      position: relative;
-      z-index: 1;
-    }
-  }
-  .author {
-    font-size: 12px;
-  }
-  .title {
-    margin-top: 10px;
-  }
-  .text {
-    height: 70px;
-    margin: 0;
-  }
-  input[type='checkbox'] {
-    display: none;
-  }
-  input[type='checkbox']:checked + .menu-content {
-    transform: translateY(-60px);
-  }
-}
-
-// Second example styles
-.example-2 {
-  background-color: #343A40;
-  .wrapper {
-    background-color: #343A40;
-    &:hover {
-      .menu-content {
-        span {
-          transform: translate(-50%, -10px);
-          opacity: 1;
-        }
-      }
-    }
-  }
-  .header {
-    @include cf;
-    color: $white;
-    padding: 1em;
-    .date {
-      float: left;
-      font-size: 12px;
-    }
-  }
-  .menu-content {
-    float: right;
-    li {
-      margin: 0 5px;
-      position: relative;
-    }
-    span {
-      transition: all 0.3s;
-      opacity: 0;
-    }
-  }
-  .data {
-    color: $white;
-    transform: translateY(calc(70px + 4em));
-  }
-  .title {
-    a {
-      color: $white;
-    }
-  }
+.card-header-bar{
+  position: absolute;
+  top:0;
+  width: 100%;
+  z-index: 1;
+  width: 100%;
   
 }
 
-.my-class{
-    border: 2px solid white;
-  }
+
+svg .polygon{
+  fill: #fff;
+}
+.card-header-slanted-edge{
+  position: absolute;
+  bottom: -1px;
+  z-index: 1;
+  width: 100%;
+  right:0;
+  left:0;
+}
+
+.btn-follow{
+  position: absolute;
+  top: -20%;
+  right: 10%;
+  width: 30px;
+  height: 30px;
+  border-radius:100%;
+}
+
+.green {
+  background: linear-gradient(to top, #0f7539, #5fffc7,#0f7539);
+}
+
+.red {
+  background: linear-gradient(to top, #750f0f, #f12626, #750f0f);
+}
+
+
+.card-body{
+  text-align:center;
+}
+
+.name{
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+
+.job-title{
+  margin-top: 5px;
+  color: #919191;
+}
+
+.bio{
+  color: #7B7B7B;
+}
+
+.social-accounts{
+  margin-top: 10%;
+}
+.social-accounts a{
+  margin-left: 10%;
+}
+.social-accounts a:first-child{
+  margin-left: 0;
+}
+
+
+.stat{
+  box-sizing: border-box;
+  width: calc(100% / 2);
+  float: left;
+  text-align: center;
+  border-left: 1px solid #EBEBEB;
+}
+.stat .label{
+  display: block;
+  text-transform: uppercase;
+  color: #95989A;
+}
+
+.stat .value{
+  display: block;
+  font-weight: 700;
+  font-size:20px;
+  margin-top: 5px;
+}
