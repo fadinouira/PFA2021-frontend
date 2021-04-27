@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 
 import { ComponentsComponent } from './components.component';
 import { DeliveriesSectionComponent } from './deliveries-section/deliveries-section.component';
+import { AddDelivComponent } from './add-deliv/add-deliv.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DeliveriesSectionComponent } from './deliveries-section/deliveries-sect
     ],
     declarations: [
         ComponentsComponent,
-        DeliveriesSectionComponent
+        DeliveriesSectionComponent,
+        AddDelivComponent
         
        
       
