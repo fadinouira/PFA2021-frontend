@@ -1,7 +1,7 @@
-<div class="row container-fluid " style="margin :0 ;margin-top :1%" >
-
-    <div class="col-md-3 col-sm-6 ">
-        <div class="card">
+<div  class="row container-fluid " style="margin :0 ;margin-top :1%" >
+  
+    <div class="col-md-3 col-sm-6 " *ngFor="let delivery of deliveries;">
+        <div class="card" >
             <div class="card-header">
                   <div class="card-header-slanted-edge">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
@@ -9,10 +9,10 @@
                   </div>
             </div>
       
-            <div class="card-body">
-                <h2 class="name">John Smith</h2>
+            <div class="card-body" >
+                <h2 class="name">{{delivery.name}}</h2>
                 <h4 class="job-title">Transporter</h4>
-                <div class="bio">21-10-2021 at 10:00</div>
+                <div class="bio">{{delivery.expectedArrivalDate.toLocaleDateString()	}} at {{delivery.expectedArrivalDate.toLocaleTimeString()	}}</div>
                 <div class="social-accounts">
                   <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-phone"></i></button></a>
                   <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-envelope"></i></button></a>
@@ -24,192 +24,18 @@
                 <div class="stats">
                     <div class="stat">
                       <span class="label">From</span>
-                      <span class="value">Sousse</span>
+                      <span class="value">{{delivery.originAddress}}</span>
                     </div>
                     <div class="stat">
                       <span class="label">To</span>
-                      <span class="value">Monastir</span>
+                      <span class="value">{{delivery.deliveryAddress}}</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="col-md-3 col-sm-6 ">
-        <div class="card">
-            <div class="card-header">
-                  <div class="card-header-slanted-edge">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
-                    <a href="#" class="btn-follow red  "></a>
-                  </div>
-            </div>
-      
-            <div class="card-body">
-                <h2 class="name">John Smith</h2>
-                <h4 class="job-title">Transporter</h4>
-                <div class="bio">21-10-2021 at 10:00</div>
-                <div class="social-accounts">
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-phone"></i></button></a>
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-envelope"></i></button></a>
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-angle-double-right"></i></button></a>
-                </div>
-            </div>
-      
-            <div class="card-footer">
-                <div class="stats">
-                    <div class="stat">
-                      <span class="label">From</span>
-                      <span class="value">Sousse</span>
-                    </div>
-                    <div class="stat">
-                      <span class="label">To</span>
-                      <span class="value">Monastir</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6 ">
-        <div class="card">
-            <div class="card-header">
-                  <div class="card-header-slanted-edge">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
-                    <a href="#" class="btn-follow red  "></a>
-                  </div>
-            </div>
-      
-            <div class="card-body">
-                <h2 class="name">John Smith</h2>
-                <h4 class="job-title">Transporter</h4>
-                <div class="bio">21-10-2021 at 10:00</div>
-                <div class="social-accounts">
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-phone"></i></button></a>
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-envelope"></i></button></a>
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-angle-double-right"></i></button></a>
-                </div>
-            </div>
-      
-            <div class="card-footer">
-                <div class="stats">
-                    <div class="stat">
-                      <span class="label">From</span>
-                      <span class="value">Sousse</span>
-                    </div>
-                    <div class="stat">
-                      <span class="label">To</span>
-                      <span class="value">Monastir</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6 ">
-        <div class="card">
-            <div class="card-header">
-                  <div class="card-header-slanted-edge">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
-                    <a href="#" class="btn-follow red  "></a>
-                  </div>
-            </div>
-      
-            <div class="card-body">
-                <h2 class="name">John Smith</h2>
-                <h4 class="job-title">Transporter</h4>
-                <div class="bio">21-10-2021 at 10:00</div>
-                <div class="social-accounts">
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-phone"></i></button></a>
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-envelope"></i></button></a>
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-angle-double-right"></i></button></a>
-                </div>
-            </div>
-      
-            <div class="card-footer">
-                <div class="stats">
-                    <div class="stat">
-                      <span class="label">From</span>
-                      <span class="value">Sousse</span>
-                    </div>
-                    <div class="stat">
-                      <span class="label">To</span>
-                      <span class="value">Monastir</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6 ">
-        <div class="card">
-            <div class="card-header">
-                  <div class="card-header-slanted-edge">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
-                    <a href="#" class="btn-follow red  "></a>
-                  </div>
-            </div>
-      
-            <div class="card-body">
-                <h2 class="name">John Smith</h2>
-                <h4 class="job-title">Transporter</h4>
-                <div class="bio">21-10-2021 at 10:00</div>
-                <div class="social-accounts">
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-phone"></i></button></a>
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-envelope"></i></button></a>
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-angle-double-right"></i></button></a>
-                </div>
-            </div>
-      
-            <div class="card-footer">
-                <div class="stats">
-                    <div class="stat">
-                      <span class="label">From</span>
-                      <span class="value">Sousse</span>
-                    </div>
-                    <div class="stat">
-                      <span class="label">To</span>
-                      <span class="value">Monastir</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6 ">
-        <div class="card">
-            <div class="card-header">
-                  <div class="card-header-slanted-edge">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
-                    <a href="#" class="btn-follow red  "></a>
-                  </div>
-            </div>
-      
-            <div class="card-body">
-                <h2 class="name">John Smith</h2>
-                <h4 class="job-title">Transporter</h4>
-                <div class="bio">21-10-2021 at 10:00</div>
-                <div class="social-accounts">
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-phone"></i></button></a>
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-envelope"></i></button></a>
-                  <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-angle-double-right"></i></button></a>
-                </div>
-            </div>
-      
-            <div class="card-footer">
-                <div class="stats">
-                    <div class="stat">
-                      <span class="label">From</span>
-                      <span class="value">Sousse</span>
-                    </div>
-                    <div class="stat">
-                      <span class="label">To</span>
-                      <span class="value">Monastir</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    
+ 
 </div>
+<mat-paginator class="paginator" [length]="this.totalDeliveries" [pageSize]="this.postPerPage" [pageSizeOptions]="this.pageSizeOption" [pageIndex]="this.currentPage - 1" (page)="onChangePage($event)" >
+</mat-paginator>

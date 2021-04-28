@@ -3,6 +3,8 @@ import { User } from './user.model';
 import { Subject } from 'rxjs' ;
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { resolve } from '@angular/compiler-cli/src/ngtsc/file_system';
+import { rejects } from 'assert';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
@@ -125,6 +127,7 @@ export class AuthService {
   public getUserNameListener(){
     return this.connectedUserListener ;
   }
+
 
 
 }

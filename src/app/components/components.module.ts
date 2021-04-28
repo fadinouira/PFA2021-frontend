@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { NouisliderModule } from 'ng2-nouislider';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 
@@ -21,6 +23,7 @@ import { DeliveriesSectionComponent } from './deliveries-section/deliveries-sect
         NouisliderModule,
         RouterModule,
         JwBootstrapSwitchNg2Module,
+        MatPaginatorModule
         
     ],
     declarations: [
