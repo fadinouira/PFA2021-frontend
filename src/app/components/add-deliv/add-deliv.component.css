@@ -1,0 +1,36 @@
+.coloredSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(-45deg,  #09042f,#28105f, #51bcd5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+      }
+    50% {
+      background-position: 100% 50%;
+      }
+    100% {
+      background-position: 0% 50%;
+      }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.row{
+  background: white;
+  border-radius: 30px;
+  box-shadow: 5px 5px 20px #28105f;
+}
+img{
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+}
+

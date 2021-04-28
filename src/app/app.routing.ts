@@ -14,6 +14,8 @@ import { MessagesComponent } from './notifications/messages/messages.component';
 
 import { AuthGuard } from './auth/Services/auth.guard';
 
+import { AddDelivComponent } from "./components/add-deliv/add-deliv.component";
+
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
@@ -21,7 +23,8 @@ const routes: Routes =[
     { path: 'landing',          component: LandingComponent },
     { path: 'messages',          component: MessagesComponent },
     { path: 'signup',           component: SignupComponent },
-    { path: 'signin',           component: SigninComponent }
+    { path: 'signin',           component: SigninComponent },
+    { path: 'add-deliv',        component: AddDelivComponent  }
 ];
 
 @NgModule({
