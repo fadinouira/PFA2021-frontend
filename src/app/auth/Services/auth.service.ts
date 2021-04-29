@@ -12,8 +12,9 @@ export class AuthService {
   private authStatusListener = new Subject<boolean>();
   private authStatus = false ;
   private tokenTimer : any ;
-  private connectedUser : string ;
-  private connectedUserListener = new Subject<string>();
+  private connectedUser : any ;
+  private connectedUserListener = new Subject<any>();
+  private url = 'https://livkoli-server.herokuapp.com';
   constructor(private http : HttpClient, private router : Router){}
 
   getToken(){
@@ -28,8 +29,17 @@ export class AuthService {
     return this.authStatus;
   }
 
-  addUser(user : User){
-    this.http.post<{message : string}>('https://livkoli-server.herokuapp.com/api/auth/signup',user)
+  addUser(user : User,image : File){
+    const userData = new FormData();
+    userData.append("name" , user.name);
+    userData.append("email" , user.email);
+    userData.append("password" , user.password);
+    userData.append("phone" , user.phone.toString());
+    userData.append("city" , user.city);
+    userData.append("type" , user.type);
+
+    userData.append("image" , image , user.name);
+    this.http.post<{message : string}>(this.url + '/api/auth/signup',userData)
     .subscribe((response)=>{
       console.log(response.message);
       this.logIn(user.email,user.password);
@@ -42,7 +52,7 @@ export class AuthService {
       email : email,
       password : password
     }
-    this.http.post<{message : string,connectedUser : any, token : string, expiresIn : number}>('https://livkoli-server.herokuapp.com/api/auth/login',req)
+    this.http.post<{message : string,connectedUser : any, token : string, expiresIn : number}>(this.url + '/api/auth/login',req)
       .subscribe(response =>{
         this.token = response.token ;
         if(this.token){
@@ -50,7 +60,12 @@ export class AuthService {
           this.setAuthTimer(expiresIn);
           this.authStatusListener.next(true);
           this.authStatus = true ;
-          this.connectedUser = response.connectedUser.name ;
+          this.connectedUser = {
+            "name" : response.connectedUser.name ,
+            "image" : response.connectedUser.image,
+            "phone" : response.connectedUser.phone
+          }
+
           this.connectedUserListener.next(this.connectedUser);
           const now = new Date();
           const expDate = new Date(now.getTime() + expiresIn * 1000);
@@ -59,6 +74,15 @@ export class AuthService {
         }
 
       });
+  }
+
+  signOut() {
+    this.token = null ;
+    this.authStatus = false ;
+    this.authStatusListener.next(false);
+    clearTimeout(this.tokenTimer);
+    this.clearAuthData();
+    this.router.navigate(['/']);
   }
 
   autoAuthUser(){
@@ -73,16 +97,8 @@ export class AuthService {
       this.authStatus = true ;
       this.setAuthTimer(expiresIn / 1000);
       this.authStatusListener.next(true);
+      this.connectedUserListener.next(authInfo.user);
     }
-  }
-
-  signOut() {
-    this.token = null ;
-    this.authStatus = false ;
-    this.authStatusListener.next(false);
-    clearTimeout(this.tokenTimer);
-    this.clearAuthData();
-    this.router.navigate(['/']);
   }
 
   private setAuthTimer(dur : number){
@@ -92,15 +108,21 @@ export class AuthService {
     },dur * 1000);
   }
 
-  private saveOfData(token : string ,expirationDate : Date,userName : string){
+  private saveOfData(token : string ,expirationDate : Date,userName : any){
+    console.log(userName);
     localStorage.setItem('token', token);
-    localStorage.setItem('user', userName);
+    localStorage.setItem('name', userName.name);
+    localStorage.setItem('image', userName.image);
+    localStorage.setItem('phone', userName.phone);
     localStorage.setItem('expirationDate',expirationDate.toISOString());
+    console.log(localStorage);
   }
 
   private clearAuthData() {
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('name');
+    localStorage.removeItem('phone');
+    localStorage.removeItem('image');
     localStorage.removeItem('expirationDate');
   }
 
@@ -112,22 +134,31 @@ export class AuthService {
     }
     return {
       token : token ,
-      expirationDate : new Date(expirationDate)
+      expirationDate : new Date(expirationDate),
+      user : {
+        name : localStorage.getItem("name"),
+        image : localStorage.getItem("image"),
+        phone : localStorage.getItem("phone")
+      }
     }
   }
 
-  public getUserName() : string {
-    const userName = localStorage.getItem("user");
-    if(userName){
-      return userName ;
+  public getUser() : any {
+    const user =  {
+      name : localStorage.getItem("name"),
+      image : localStorage.getItem("image"),
+      phone : localStorage.getItem("phone")
     }
-    return "";
+    console.log(user);
+    console.log("this is the user");
+
+    if(user){
+      return user ;
+    }
+    return null;
   }
 
   public getUserNameListener(){
     return this.connectedUserListener ;
   }
-
-
-
 }

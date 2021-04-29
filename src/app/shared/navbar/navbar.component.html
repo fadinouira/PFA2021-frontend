@@ -46,7 +46,7 @@
                 <div *ngIf="userLogedIn" class="btn-group"  >
                     
                     <button type="button" class="btn btn-info btn-round">
-                        <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Avatar" class="avatar">{{" "+userName}}
+                        <img src="{{user.image}}" alt="Avatar" class="avatar">{{" "+user.name}}
                     </button>
                     
                     <button type="button" class="btn btn-info btn-round dropdown-toggle dropdown-toggle-split"

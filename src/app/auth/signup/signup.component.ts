@@ -249,9 +249,10 @@ export class SignupComponent implements OnInit {
       password: this.form.get('password').value ,
       phone : this.form.get('phone').value,
       city : this.form.get('city').value,
-      type: this.formA.get('type').value
+      type: this.formA.get('type').value,
+      image : null
     };
-    this.auth.addUser(user);
+    this.auth.addUser(user,this.formA.value.image);
     //this.isLoading = false ;  TO Do make a promise function 
     
   }

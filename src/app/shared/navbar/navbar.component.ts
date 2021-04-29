@@ -12,9 +12,9 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     private authListenerSub : Subscription ;
-    private userNameSub : Subscription ;
+    private userSub : Subscription ;
     userLogedIn = this.auth.getAuthStatus() ;
-    userName = this.auth.getUserName() ;
+    user = this.auth.getUser() ;
 
     constructor(public location: Location, private element : ElementRef,private auth : AuthService) {
         this.sidebarVisible = false;
@@ -30,8 +30,8 @@ export class NavbarComponent implements OnInit {
         this.userLogedIn = result ;
         });
 
-        this.userNameSub = this.auth.getUserNameListener().subscribe(result => {
-        this.userName = result ;
+        this.userSub = this.auth.getUserNameListener().subscribe(result => {
+        this.user = result ;
         });
     }
     sidebarOpen() {
@@ -77,6 +77,8 @@ export class NavbarComponent implements OnInit {
     }
     ngOnDestroy() : void {
         this.authListenerSub.unsubscribe();
+        this.userSub.unsubscribe();
+
     }
       onSignOut() : void {
         this.auth.signOut();

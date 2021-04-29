@@ -6,4 +6,5 @@ export interface User {
   phone : number ;
   city : string ;
   type : string ;
+  image : string | File ;
 }
