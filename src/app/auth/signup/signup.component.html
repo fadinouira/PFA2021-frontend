@@ -3,50 +3,46 @@
     
     <div *ngIf="!isLoading" class="container {{this.status}} " id="container">
         <div class="form-container sign-up-container card">
-            <form action="#" #signupFormB = "ngForm" (submit)="onSubmit(signupFormB)">
+            <form action="#" [formGroup]="form" (submit)="onSubmit()">
                 <h3>Complete your account</h3>
 
                 <input 
-                    ngModel
-                    #cityInput ="ngModel" 
+                    formControlName="city"
                     name="city"
-                    class="input" 
+                    class="{{cityClass}}" 
                     type="text" 
-                    placeholder="City" 
+                    placeholder="{{cityError}}" 
                 />
 
                 <input
-                    ngModel
-                    #phoneInput ="ngModel" 
+                    formControlName="phone"
                     name="phone"
-                    class="input"  
+                    class="{{phoneClass}}"  
                     type="number" 
-                    placeholder="Phone" 
+                    placeholder="{{phoneError}}" 
                 />
 
                 <input 
-                    ngModel
-                    #passwordInput ="ngModel" 
+                    formControlName="password"
                     name="password"
-                    class="input" 
+                    class="{{passwordClass}}" 
                     type="password" 
-                    placeholder="Password"
+                    placeholder="{{passwordError}}"
                  />
 
                 <input 
-                    ngModel
-                    #repeatPasswordInput ="ngModel" 
+                    formControlName="repeatPassword"
                     name="repeatPassword"
-                    class="input" 
+                    class="{{repeatClass}}" 
                     type="password" 
-                    placeholder="Repeat password" 
+                    placeholder="{{repeatError}}" 
                 />
                 <br>
                 <button class="btn btn-round btn-block btn-info">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form #signupFormA = "ngForm" (submit)="getName(signupFormA)">
+            <form [formGroup]="formA" (submit)="getName()">
                 <h1>Create Account</h1>
                 <div class="social-container">
                     <div class="social-line text-center">
@@ -64,35 +60,36 @@
                 <span>or</span>
 
                 <input
-                    ngModel
-                    #nameInput ="ngModel" 
+                    formControlName="name"
                     name="name"
-                    class="input" 
+                    class="{{nameClass}}" 
                     type="text" 
-                    placeholder="Name & Prename" 
+                    placeholder="{{nameError}}" 
                 />
-
                 <input 
-                    ngModel
-                    #emailInput ="ngModel" 
+                    formControlName="email"
                     name="email"
-                    class="input" 
+                    class="{{emailClass}}" 
                     type="email" 
-                    placeholder="Email" 
+                    placeholder="{{emailError}}" 
                 />
-
-                
+                <input 
+                    name="image"
+                    type="file" 
+                    #filePicker 
+                    hidden 
+                    (change)="onImagePicked($event)"
+                />                
 
                 <select 
-                    ngModel
-                    #typeInput ="ngModel" 
+                    formControlName="type"
                     name="type"
-                    class="form-select input" 
+                    class="form-select {{typeClass}}" 
                     aria-label="Default select example"
                 >
-                    <option value="">---Please select---</option>
-                    <option [ngValue]="'transporter'">Transporter</option>
-                    <option [ngValue]="'client'">Client</option>
+                    <option class="input" [ngValue]="null" disabled selected>{{typeError}}</option>
+                    <option class="input" placeholder="qsdjhk" [ngValue]="'transporter'">Transporter</option>
+                    <option class="input" [ngValue]="'client'">Client</option>
                 </select>
 
                 <button hidden #next></button>
@@ -103,7 +100,14 @@
                 <div class="overlay-panel overlay-left">
                     <h1>One More Step</h1>
                     <p>Please chose you profile image</p>
-                    <img src="assets/img/faces/joe-gardner-2.jpg" class="img-circle img-no-padding img-responsive" alt="Rounded Image" style="width: 50%;">
+                    <br>
+                    <a  class="file" href="#/signup" (click)="filePicker.click()">
+                        <img 
+                        src={{imgUrl}} 
+                        class="img-circle img-no-padding img-responsive img" 
+                        alt="Rounded Image" 
+                        >
+                    </a>
                     <br>
                     <p>Or</p>
                     <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(0)">Go back</button>

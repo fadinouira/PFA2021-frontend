@@ -1,35 +1,119 @@
 <section class="coloredSection" >  
-    <div class="form my-4 mx-5">
-    <div class="container">
-        <div class="row no-gutters">
-            <div class="col-lg-7  ">
-                <h1 class="font-weight-bold pt-5 pb-3"> Creat your **** </h1>
-                <form>
-                    <div class="form-row">
-                        <div class="col-lg-7">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
+    <div *ngIf="!isLoading" class="container {{this.status}} " id="container">
+        <div class="form-container sign-up-container card">
+            <form action="#" #signupFormB = "ngForm" (submit)="onSubmit(signupFormB)">
+                <h3>Complete your account</h3>
 
-                    <div class="form-row">
-                        <div class="col-lg-7">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
+                <input 
+                    ngModel
+                    #cityInput ="ngModel" 
+                    name="city"
+                    class="input" 
+                    type="text" 
+                    placeholder="City" 
+                />
 
-                    <div class="form-row">
-                        <div class="col-lg-7">
-                            <button type="button" class="btn1"> ok </button>
-                        </div>
-                    </div>
+                <input
+                    ngModel
+                    #phoneInput ="ngModel" 
+                    name="phone"
+                    class="input"  
+                    type="number" 
+                    placeholder="Phone" 
+                />
 
-                </form>
+                <input 
+                    ngModel
+                    #passwordInput ="ngModel" 
+                    name="password"
+                    class="input" 
+                    type="password" 
+                    placeholder="Password"
+                 />
+
+                <input 
+                    ngModel
+                    #repeatPasswordInput ="ngModel" 
+                    name="repeatPassword"
+                    class="input" 
+                    type="password" 
+                    placeholder="Repeat password" 
+                />
+                <br>
+                <button class="btn btn-round btn-block btn-info">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form #signupFormA = "ngForm" (submit)="getName(signupFormA)">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <div class="social-line text-center">
+                        <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <span>or</span>
+
+                <input
+                    ngModel
+                    #nameInput ="ngModel" 
+                    name="name"
+                    class="input" 
+                    type="text" 
+                    placeholder="Name & Prename" 
+                />
+
+                <input 
+                    ngModel
+                    #emailInput ="ngModel" 
+                    name="email"
+                    class="input" 
+                    type="email" 
+                    placeholder="Email" 
+                />
+
                 
-            </div>
-            <div class="col-lg-5">
-                <img src=".\assets\img\delevaddform.jpg" class="img-fluid" alt="">
+
+                <select 
+                    ngModel
+                    #typeInput ="ngModel" 
+                    name="type"
+                    class="form-select input" 
+                    aria-label="Default select example"
+                >
+                    <option value="">---Please select---</option>
+                    <option [ngValue]="'transporter'">Transporter</option>
+                    <option [ngValue]="'client'">Client</option>
+                </select>
+
+                <button hidden #next></button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>One More Step</h1>
+                    <p>Please chose you profile image</p>
+                    <img src="assets/img/faces/joe-gardner-2.jpg" class="img-circle img-no-padding img-responsive" alt="Rounded Image" style="width: 50%;">
+                    <br>
+                    <p>Or</p>
+                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(0)">Go back</button>
+                </div>
+                
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <br>
+                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(1) ; next.click()" >Next</button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
