@@ -14,7 +14,7 @@ export class AuthService {
   private tokenTimer : any ;
   private connectedUser : any ;
   private connectedUserListener = new Subject<any>();
-  private url = 'https://livkoli-server.herokuapp.com';
+  private url = 'http://localhost:3200';
   constructor(private http : HttpClient, private router : Router){}
 
   getToken(){

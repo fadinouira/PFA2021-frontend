@@ -15,11 +15,13 @@ export class DeliveryService {
   private maxDeliveries : number ;
   private maxDeliveriesUpdated = new Subject<number>();
   private token ;
+  private url = 'http://localhost:3200';
+
   constructor(private http : HttpClient, private router : Router,private auth :AuthService){}
 
   getDeliveries(pageSize : number , currentPage : number) {
     const queryParams = "?pageSize="+pageSize+"&currentPage="+currentPage;
-    this.http.get<{message : String , deliveries : any ,maxPages : number}>('https://livkoli-server.herokuapp.com/api/deliveries'+ queryParams)
+    this.http.get<{message : String , deliveries : any ,maxPages : number}>(this.url+'/api/deliveries'+ queryParams)
     .pipe(map((postData) => {
       return {
         maxPages : postData.maxPages ,
