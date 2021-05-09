@@ -1,0 +1,271 @@
+Tunis	
+1111	Tunis	638,845
+1112	Le Bardo	71,961
+1113	Le Kram	74,132
+1114	La Goulette	45,711
+1115	Carthage	17,010
+1116	Sidi Bou Said	5,911
+1117	La Marsa	92,987
+1118	Sidi Hassine	109,690
+Ariana
+1211	Ariana	114,486
+1212	La Soukra	129,693
+1213	Raoued	94,961
+1214	Kalâat el-Andalous	18,211
+1215	Sidi Thabet	11,351
+1216	Ettadhamen-Mnihla	142,953
+Ben Arous
+1311	Ben Arous	88,322
+1312	El Mourouj	104,586
+1313	Hammam Lif	42,518
+1314	Hammam Chott	31,810
+1315	Bou Mhel el-Bassatine	40,101
+1316	Ezzahra	34,962
+1317	Radès	59,794
+1318	Mégrine	26,924
+1319	Mohamedia-Fouchana	106,167
+1320	Mornag	30,058
+1321	Khalidia	8,470
+Manouba
+1411	Manouba	41,670
+1412	Den Den	17,122
+1413	Douar Hicher	82,532
+1414	Oued Ellil	57,851
+1415	Mornaguia	19,834
+1416	Borj El Amri	6,519
+1417	Djedeida	28,660
+1418	Tebourba	27,545
+1419	El Battan	6,453
+Nabeul
+1511	Nabeul	70,437
+1512	Dar Chaabane	42,140
+1513	Béni Khiar	21,626
+1514	El Maâmoura	8,039
+1515	Somâa	7,017
+1516	Korba	38,902
+1517	Tazerka	9,388
+1518	Menzel Temime	39,138
+1519	Menzel Horr	5,243
+1520	El Mida	4,155
+1521	Kelibia	46,856
+1522	Azmour	5,054
+1523	Hammam Ghezèze	9,076
+1524	Dar Allouch	4,558
+1525	El Haouaria	9,508
+1526	Takelsa	22,151
+1527	Soliman	37,749
+1528	Korbous	3,532
+1529	Menzel Bouzelfa	18,551
+1530	Béni Khalled	15,463
+1531	Zaouiet Djedidi	7,862
+1532	Grombalia	24,299
+1533	Bou Argoub	11,990
+1534	Hammamet	73,236
+Zaghouan
+1611	Zaghouan	20,798
+1612	Zriba	11,819
+1613	Bir Mcherga	8,329
+1614	Djebel Oust	5,325
+1615	El Fahs	23,556
+1616	Nadhour	7,567
+Bizerte	1711	Bizerte	136,917
+1712	Sejnane	5,645
+1713	Mateur	34,010
+1714	Menzel Bourguiba	54,536
+1715	Tinja	21,139
+1716	Ghar al Milh	5,345
+1717	Aousja	5,126
+1718	Menzel Jemil	22,238
+1719	Menzel Abderrahmane	19,078
+1720	El Alia	18,359
+1721	Ras Jebel	28,610
+1722	Metline	9,904
+1723	Raf Raf	9,850
+Béja	2111	Béja	62,303
+2112	El Maâgoula	7,809
+2113	Zahret Medien	5,204
+2114	Nefza	7,302
+2115	Téboursouk	11,865
+2116	Testour	13,331
+2117	Goubellat	4,128
+2118	Majaz al Bab	21,653
+Jendouba	2211	Jendouba	45,431
+2212	Bou Salem	21,638
+2213	Tabarka	19,770
+2214	Aïn Draham	9,659
+2215	Fernana	3,831
+2216	Beni M'Tir	784
+2217	Ghardimaou	19,495
+2218	Oued Melliz	2,388
+Kef	2311	El Kef	54,690
+2312	Nebeur	3,299
+2313	Touiref	2,178
+2314	Sakiet Sidi Youssef	6,335
+2315	Tajerouine	17,530
+2316	Menzel Salem	1,824
+2317	Kalaat es Senam	8,145
+2318	Kalâat Khasba	2,558
+2319	Jérissa	9,807
+2320	El Ksour	5,852
+2321	Dahmani	12,964
+2322	Sers	12,108
+Siliana	2411	Siliana	31,251
+2412	Bou Arada	13,162
+2413	Gaâfour	10,399
+2414	El Krib	7,841
+2415	Sidi Bou Rouis	3,258
+2416	Maktar	13,542
+2417	Rouhia	4,675
+2418	Kesra	2,602
+2419	Bargou	4,916
+2420	El Aroussa	2,905
+Sousse	3111	Sousse	221,530
+3112	Ksibet Thrayet	11,623
+3113	Ezzouhour	17,348
+3114	Zaouiet Sousse	20,681
+3115	Hammam Sousse	42,937
+3116	Akouda	27,200
+3117	Kalâa Kebira	53,323
+3118	Sidi Bou Ali	10,282
+3119	Hergla	7,419
+3120	Enfidha	10,990
+3121	Bouficha	9,931
+3122	Sidi El Hani	2,706
+3123	M'saken	60,165
+3124	Kalâa Seghira	34,548
+3125	Messaadine	12,916
+3126	Kondar	3,804
+Monastir	3211	Monastir	93,306
+3212	Khniss	11,229
+3213	Ouerdanin	21,814
+3214	Sahline Moôtmar	19,013
+3215	Sidi Ameur	8,404
+3216	Zéramdine	16,806
+3217	Beni Hassen	8,801
+3218	Ghenada	5,100
+3219	Jemmal	50,275
+3220	Menzel Kamel	8,432
+3221	Zaouiet Kontoch	6,713
+3222	Bembla-Mnara	16,078
+3223	Menzel Ennour	11,772
+3224	El Masdour	4,705
+3225	Moknine	57,111
+3226	Sidi Bennour	4,520
+3227	Menzel Farsi	3,603
+3228	Amiret El Fhoul	5,255
+3229	Amiret Touazra	6,261
+3230	Amiret El Hojjaj	8,121
+3231	Cherahil	4,406
+3232	Bekalta	17,850
+3233	Téboulba	37,485
+3234	Ksar Hellal	49,376
+3235	Ksibet El Mediouni	13,122
+3236	Benen Bodher	14,218
+3237	Touza	7,236
+3238	Sayada	12,962
+3239	Lemta	5,790
+3240	Bouhjar	6,137
+3241	Menzel Hayet	12,927
+Mahdia	3311	Mahdia	51,833
+3312	Rejiche	10,806
+3313	Bou Merdes	4,338
+3314	Ouled Chamekh	5,120
+3315	Chorbane	5,700
+3316	Hebira	3,248
+3317	Essouassi	5,381
+3318	El Djem	21,234
+3319	Kerker	7,467
+3320	Chebba	22,227
+3321	Melloulèche	6,704
+3322	Sidi Alouane	7,500
+3323	Ksour Essef	28,842
+3324	El Bradâa	7,404
+Sfax	3411	Sfax	272,801
+3412	Sakiet Ezzit	53,243
+3413	Chihia	26,300
+3414	Sakiet Eddaïer	45,767
+3415	Gremda	40,858
+3416	El Ain	43,337
+3417	Thyna	33,419
+3418	Agareb	11,513
+3419	Jebiniana	7,190
+3420	El Hencha	7,575
+3421	Menzel Chaker	2,278
+3422	Ghraïba, Tunisia	3,251
+3423	Bir Ali Ben Khélifa	4,905
+3424	Skhira	11,912
+3425	Mahares	15,878
+3426	Kerkennah	15,501
+Kairouan	4111	Kairouan	139,070
+4112	Chebika	2,921
+4113	Sbikha	8,036
+4114	Oueslatia	9,006
+4115	Aïn Djeloula	1,757
+4116	Haffouz	8,429
+4117	Alaâ	3,276
+4118	Hajeb El Ayoun	10,621
+4119	Nasrallah	5,012
+4120	Menzel Mehiri	3,870
+4121	Echrarda	1,705
+4122	Bou Hajla	7,828
+Kasserine	4211	Kasserine	83,534
+4212	Sbeitla	24,597
+4213	Sbiba	6,504
+4214	Jedelienne	4,352
+4215	Thala	18,230
+4216	Haïdra	3,451
+4217	Foussana	7,703
+4218	Fériana	29,572
+4219	Thélepte	6,932
+4220	Magel Bel Abbès	6,471
+Sidi Bouzid	4311	Sidi Bouzid	48,284
+4312	Jilma	5,821
+4313	Cebalet	3,361
+4314	Bir El Hafey	6,475
+4315	Sidi Ali Ben Aoun	9,297
+4316	Menzel Bouzaiane	7,113
+4317	Meknassy	14,773
+4318	Mezzouna	7,390
+4319	Regueb	11,420
+4320	Ouled Haffouz	2,494
+Gabès	5111	Gabès	130,984
+5112	Chenini Nahal	14,803
+5113	Ghannouch	28,051
+5114	Métouia	10,716
+5115	Oudhref	9,932
+5116	El Hamma	41,607
+5117	Matmata	1,847
+5118	Nouvelle Matmata	7,526
+5119	Mareth	11,678
+5120	Zarat	5,627
+Mednine	5211	Medenine	71,406
+5212	Beni Khedache	2,930
+5213	Ben Gardane	66,567
+5214	Zarzis	72,611
+5215	Houmt El Souk (Djerba)	75,904
+5216	Midoun (Djerba)	63,528
+5217	Ajim (Djerba)	24,294
+Tataouine	5311	Tataouine	66,924
+5312	Bir Lahmar	7,955
+5313	Ghomrassen	9,568
+5314	Dehiba	4,295
+5315	Remada	6,289
+Gafsa	6111	Gafsa	95,242
+6112	El Ksar	33,729
+6113	Moularès	21,431
+6114	Redeyef	25,046
+6115	Métlaoui	38,129
+6116	Mdhila	12,814
+6117	El Guettar	14,088
+6118	Sened	9,533
+Tozeur	6211	Tozeur	37,365
+6212	Degache	7,893
+6213	Hamet Jerid	6,439
+6214	Nafta	21,654
+6215	Tamerza	2,334
+Kebili	6311	Kebili	20,623
+6312	Djemna	7,194
+6313	Douz	30,245
+6314	El Golâa	7,912
+6315	Souk Lahad	18,905
+

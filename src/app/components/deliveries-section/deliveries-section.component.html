@@ -2,7 +2,7 @@
   
     <div class="col-md-3 col-sm-6 " *ngFor="let delivery of deliveries;">
         <div class="card" >
-            <div class="card-header">
+            <div class="card-header" [ngStyle]="{'background-image': 'url(' + delivery.ownerPhoto + ')' }">
                   <div class="card-header-slanted-edge">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
                     <a href="#" class="btn-follow red  "></a>
@@ -12,7 +12,7 @@
             <div class="card-body" >
                 <h2 class="name">{{delivery.name}}</h2>
                 <h4 class="job-title">Transporter</h4>
-                <div class="bio">{{delivery.expectedArrivalDate.toLocaleDateString()	}} at {{delivery.expectedArrivalDate.toLocaleTimeString()	}}</div>
+                <div class="bio">{{delivery.expectedArrivalDate.toLocaleDateString()}} at {{delivery.expectedArrivalDate.toLocaleTimeString()	}}</div>
                 <div class="social-accounts">
                   <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-phone"></i></button></a>
                   <a href="#"><button type="button" class="btn btn-just-icon"><i class="fa fa-envelope"></i></button></a>

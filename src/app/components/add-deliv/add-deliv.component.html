@@ -1,97 +1,42 @@
 <section class="coloredSection" >  
     <div *ngIf="!isLoading" class="container {{this.status}} " id="container">
-        <div class="form-container sign-up-container card">
-            <form action="#" #signupFormB = "ngForm" (submit)="onSubmit(signupFormB)">
-                <h3>Complete your account</h3>
-
-                <input 
-                    ngModel
-                    #cityInput ="ngModel" 
-                    name="city"
-                    class="input" 
-                    type="text" 
-                    placeholder="City" 
-                />
-
-                <input
-                    ngModel
-                    #phoneInput ="ngModel" 
-                    name="phone"
-                    class="input"  
-                    type="number" 
-                    placeholder="Phone" 
-                />
-
-                <input 
-                    ngModel
-                    #passwordInput ="ngModel" 
-                    name="password"
-                    class="input" 
-                    type="password" 
-                    placeholder="Password"
-                 />
-
-                <input 
-                    ngModel
-                    #repeatPasswordInput ="ngModel" 
-                    name="repeatPassword"
-                    class="input" 
-                    type="password" 
-                    placeholder="Repeat password" 
-                />
-                <br>
-                <button class="btn btn-round btn-block btn-info">Sign Up</button>
-            </form>
-        </div>
         <div class="form-container sign-in-container">
-            <form #signupFormA = "ngForm" (submit)="getName(signupFormA)">
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <div class="social-line text-center">
-                        <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
-                            <i class="fa fa-facebook-square"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </div>
-                </div>
-                <span>or</span>
+            <form action="#" [formGroup]="form" (submit)="addDeliv()">
+                <h1>Add a delivery offer</h1>
+                
+                <input
+                    formControlName="from"
+                    class="input"
+                    type="text"
+                    placeholder="From"
+                />
 
                 <input
-                    ngModel
-                    #nameInput ="ngModel" 
-                    name="name"
-                    class="input" 
-                    type="text" 
-                    placeholder="Name & Prename" 
+                    formControlName="to"
+                    class="input"
+                    type="text"
+                    placeholder="To"
+                />
+
+                <input
+                    formControlName="date"
+                    class="input input-daterange"
+                    type="date"
+                    placeholder="Date"
                 />
 
                 <input 
-                    ngModel
-                    #emailInput ="ngModel" 
-                    name="email"
+                    formControlName="departTime"
                     class="input" 
-                    type="email" 
-                    placeholder="Email" 
+                    type="time" 
                 />
 
-                
+                <input 
+                    formControlName="arrivalTime"
+                    class="input" 
+                    type="time" 
+                />
 
-                <select 
-                    ngModel
-                    #typeInput ="ngModel" 
-                    name="type"
-                    class="form-select input" 
-                    aria-label="Default select example"
-                >
-                    <option value="">---Please select---</option>
-                    <option [ngValue]="'transporter'">Transporter</option>
-                    <option [ngValue]="'client'">Client</option>
-                </select>
 
                 <button hidden #next></button>
             </form>
@@ -111,7 +56,7 @@
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>
                     <br>
-                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(1) ; next.click()" >Next</button>
+                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="next.click()" >Create</button>
                 </div>
             </div>
         </div>

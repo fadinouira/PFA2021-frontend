@@ -29,6 +29,9 @@ export class DeliveryService {
         return {
           id : delivery.id ,
           owner : delivery.owner,
+          ownerPhoto : delivery.ownerPhoto,
+          ownerPhone : delivery.ownerPhone,
+          ownerEmail : delivery.ownerEmail,
           name : delivery.ownerName, 
           originAddress :delivery.originAddress,
           deliveryAddress : delivery.deliveryAddress,
@@ -105,22 +108,17 @@ export class DeliveryService {
   //   })
   // }
 
-  // addPost(post : Post , image : File){
-  //   const postData = new FormData();
-  //   postData.append("title" , post.title);
-  //   postData.append("content" , post.content);
-  //   postData.append("image" , image , post.title);
-  //   this.http.post<{message : string,post : Post }>('http://localhost:3200/api/posts', postData)
-  //   .subscribe((response)=>{
-  //     console.log(response.message);
-  //     console.log(response.post.imagePath);
-  //     this.getPosts(5,1);
-  //     post = response.post ;
-  //     this.posts.push(post);
-  //     this.postsUpdated.next([...this.posts]);
-  //     this.router.navigate(["/"]);
-  //   });
+  addDelivery(deliv : Delivery ){
+    console.log(deliv);
+    this.http.post<{message : string,delivery : Delivery }>('http://localhost:3200/api/deliveries', deliv)
+    .subscribe((response)=>{
+      console.log(response.message);
+      const delivery = response.delivery ;
+      this.deliveries.push(delivery);
+      this.deliveriesUpdated.next([...this.deliveries]);
+      this.router.navigate(["/"]);
+    });
 
-  // }
+  }
 
 }

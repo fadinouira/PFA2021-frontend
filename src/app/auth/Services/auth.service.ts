@@ -8,11 +8,11 @@ import { rejects } from 'assert';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  private token : string ;
+  private token : string;
   private authStatusListener = new Subject<boolean>();
-  private authStatus = false ;
-  private tokenTimer : any ;
-  private connectedUser : any ;
+  private authStatus = false;
+  private tokenTimer : any;
+  private connectedUser : any;
   private connectedUserListener = new Subject<any>();
   private url = 'http://localhost:3200';
   constructor(private http : HttpClient, private router : Router){}
@@ -63,7 +63,8 @@ export class AuthService {
           this.connectedUser = {
             "name" : response.connectedUser.name ,
             "image" : response.connectedUser.image,
-            "phone" : response.connectedUser.phone
+            "phone" : response.connectedUser.phone,
+            "email" : response.connectedUser.email
           }
 
           this.connectedUserListener.next(this.connectedUser);
@@ -108,12 +109,13 @@ export class AuthService {
     },dur * 1000);
   }
 
-  private saveOfData(token : string ,expirationDate : Date,userName : any){
-    console.log(userName);
+  private saveOfData(token : string ,expirationDate : Date,user : any){
+    console.log(user);
     localStorage.setItem('token', token);
-    localStorage.setItem('name', userName.name);
-    localStorage.setItem('image', userName.image);
-    localStorage.setItem('phone', userName.phone);
+    localStorage.setItem('name', user.name);
+    localStorage.setItem('image', user.image);
+    localStorage.setItem('phone', user.phone);
+    localStorage.setItem('email', user.email);
     localStorage.setItem('expirationDate',expirationDate.toISOString());
     console.log(localStorage);
   }
@@ -147,7 +149,8 @@ export class AuthService {
     const user =  {
       name : localStorage.getItem("name"),
       image : localStorage.getItem("image"),
-      phone : localStorage.getItem("phone")
+      phone : localStorage.getItem("phone"),
+      email : localStorage.getItem("email")
     }
     console.log(user);
     console.log("this is the user");

@@ -11,17 +11,17 @@ import { DeliveryService } from '../services/delivery.service';
   styleUrls: ['./deliveries-section.component.scss']
 })
 export class DeliveriesSectionComponent implements OnInit {
-  deliveries :Delivery[] = [] ;
-  private deliveriesSub: Subscription ;
-  private maxDeliveriesSub: Subscription ;
-  private userAuthSub : Subscription ;
+  deliveries :Delivery[] = [];
+  private deliveriesSub: Subscription;
+  private maxDeliveriesSub: Subscription;
+  private userAuthSub : Subscription;
   public isLoading : boolean;
   totalDeliveries : number;
-  postPerPage = 8 ;
+  postPerPage = 8;
   pageSizeOption = [8,16,32,64];
-  currentPage = 1 ;
-  userLogedIn = this.auth.getAuthStatus() ;
-  owner : any ;
+  currentPage = 1;
+  userLogedIn = this.auth.getAuthStatus();
+  owner : any;
   constructor(public deliveryService : DeliveryService, private auth : AuthService) { }
 
   ngOnInit(): void {
@@ -31,6 +31,7 @@ export class DeliveriesSectionComponent implements OnInit {
     .subscribe((deliveries : Delivery[]) => {
       this.deliveries = deliveries ;
       this.isLoading = false;
+      console.log(this.deliveries);
     });
     this.maxDeliveriesSub = this.deliveryService.getMaxDeliveriesListener()
     .subscribe((totalDeliveries : number) => {
@@ -46,8 +47,6 @@ export class DeliveriesSectionComponent implements OnInit {
     this.deliveriesSub.unsubscribe();
   }
 
-
-
   // onDelete(id : string){
   //   this.isLoading = true;
   //   this.postService.deletePost(id);
@@ -61,6 +60,4 @@ export class DeliveriesSectionComponent implements OnInit {
     this.currentPage = pageData.pageIndex + 1;
     this.deliveryService.getDeliveries(this.postPerPage,this.currentPage) ;
   }
-
-
 }

@@ -5,14 +5,14 @@
   height: 400px;
   
 }
+
 .card-header{
+  border-radius: 15px 15px 0px 0px; 
   position: relative;
   height: 150px;
   background-size: cover;
   background-position: center;
-  background-image: url("../../../assets/img/faces/kaci-baum-2.jpg"),
 }
-
 
 .card-header-bar{
   position: absolute;
@@ -22,7 +22,6 @@
   width: 100%;
   
 }
-
 
 svg .polygon{
   fill: #fff;
