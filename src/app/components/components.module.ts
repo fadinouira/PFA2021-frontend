@@ -7,6 +7,9 @@ import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
+import { AgmCoreModule } from '@agm/core';
+
+
 import { ComponentsComponent } from './components.component';
 import { DeliveriesSectionComponent } from './deliveries-section/deliveries-section.component';
 import { AddDelivComponent } from './add-deliv/add-deliv.component';
@@ -21,7 +24,10 @@ import { AddDelivComponent } from './add-deliv/add-deliv.component';
         NouisliderModule,
         RouterModule,
         JwBootstrapSwitchNg2Module,
-        MatPaginatorModule,        
+        MatPaginatorModule,  
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyAVX99maRxcUOoyVqA9WOZy6BWtAuvVcjE'
+          })      
     ],
     declarations: [
         ComponentsComponent,

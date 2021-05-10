@@ -165,7 +165,6 @@ transition: transform 0.6s ease-in-out;
 
 .overlay-panel {
 position: absolute;
-display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
@@ -210,4 +209,12 @@ height: 40px;
 width: 40px;
 }
 
+agm-map {
+  height: 300px;
+}
 
+.map-card {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  height: 300px;
+}

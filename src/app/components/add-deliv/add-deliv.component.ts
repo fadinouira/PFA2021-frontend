@@ -10,6 +10,9 @@ import { DeliveryService } from '../services/delivery.service';
   styleUrls: ['./add-deliv.component.css']
 })
 export class AddDelivComponent implements OnInit {
+  title = 'My first AGM project';
+  lat = 51.678418;
+  lng = 7.809007;
   isLoading : boolean ;
   status = "";
   form : FormGroup ;
