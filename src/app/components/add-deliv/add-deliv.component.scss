@@ -1,9 +1,17 @@
+$blue-darker : #012a4a ;
+$blue-dark: #274C77;
+$blue : #A3CEF1 ;
+$blue-cyan: #51BCD5;
+$blue-default: #6096BA;
+$grey : #8B8C89;
+$white : #E7ECEF ;
+$color-blue: #0000FF;
 .coloredSection {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(-45deg,  #09042f,#28105f, #51bcd5, #09042f);
+    background: linear-gradient(-45deg,  $blue-darker,$blue-dark, $blue-default, $blue-darker);
     background-size: 200% 200%;
     animation: gradient 10s ease infinite;
   }
@@ -55,7 +63,7 @@ border-color: #FFFFFF;
 }
 
 form {
-background-color: #FFFFFF;
+background-color: $white;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -66,7 +74,7 @@ text-align: center;
 }
 
 .input {
-background-color: #eee;
+background-color: #FFFFFF;
 border: none;
 padding: 12px 15px;
 margin: 8px 0;
@@ -146,7 +154,7 @@ transform: translateX(-100%);
 .overlay {
 background: #09042f ;
 background: -webkit-linear-gradient(to right, #51bcd5, #28105f);
-background: linear-gradient(to right, #28105f, #51bcd5);
+background: linear-gradient(to right, $blue-darker, $blue-cyan);
 background-repeat: no-repeat;
 background-size: cover;
 background-position: 0 0;
@@ -209,12 +217,18 @@ height: 40px;
 width: 40px;
 }
 
-agm-map {
-  height: 300px;
+map {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .map-card {
-  margin-top: 10%;
+  margin-top: 15%;
   margin-bottom: 10%;
   height: 300px;
+  border: 2px solid rgb(224, 224, 224);
+  border-radius: 25px;
 }

@@ -7,12 +7,9 @@ import { DeliveryService } from '../services/delivery.service';
 @Component({
   selector: 'app-add-deliv',
   templateUrl: './add-deliv.component.html',
-  styleUrls: ['./add-deliv.component.css']
+  styleUrls: ['./add-deliv.component.scss']
 })
 export class AddDelivComponent implements OnInit {
-  title = 'My first AGM project';
-  lat = 51.678418;
-  lng = 7.809007;
   isLoading : boolean ;
   status = "";
   form : FormGroup ;
@@ -95,5 +92,6 @@ export class AddDelivComponent implements OnInit {
     }
     this.db.addDelivery(deliv);
   }
+
 
 }

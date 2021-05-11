@@ -7,12 +7,13 @@ import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
-import { AgmCoreModule } from '@agm/core';
+
 
 
 import { ComponentsComponent } from './components.component';
 import { DeliveriesSectionComponent } from './deliveries-section/deliveries-section.component';
 import { AddDelivComponent } from './add-deliv/add-deliv.component';
+import { DeliveryComponent } from './delivery/delivery.component';
 
 
 @NgModule({
@@ -25,14 +26,12 @@ import { AddDelivComponent } from './add-deliv/add-deliv.component';
         RouterModule,
         JwBootstrapSwitchNg2Module,
         MatPaginatorModule,  
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyAVX99maRxcUOoyVqA9WOZy6BWtAuvVcjE'
-          })      
     ],
     declarations: [
         ComponentsComponent,
         DeliveriesSectionComponent,
-        AddDelivComponent
+        AddDelivComponent,
+        DeliveryComponent
     ],
     entryComponents: [],
     exports:[ ComponentsComponent ]

@@ -16,7 +16,6 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
   "dependencies": {
-    "@agm/core": "*",
     "@angular/animations": "11.0.4",
     "@angular/cdk": "^11.2.9",
     "@angular/common": "11.0.4",
@@ -43,8 +42,8 @@
     "zone.js": "0.11.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "0.1100.4",
-    "@angular/cli": "11.0.4",
+    "@angular-devkit/build-angular": "^0.1102.12",
+    "@angular/cli": "^11.2.12",
     "@angular/compiler-cli": "11.0.4",
     "@angular/language-service": "11.0.4",
     "@types/jasmine": "3.6.2",
@@ -52,7 +51,7 @@
     "codelyzer": "6.0.1",
     "jasmine-core": "3.6.0",
     "jasmine-spec-reporter": "6.0.0",
-    "karma": "5.2.3",
+    "karma": "^6.3.2",
     "karma-chrome-launcher": "3.1.0",
     "karma-cli": "2.0.0",
     "karma-coverage-istanbul-reporter": "3.0.3",

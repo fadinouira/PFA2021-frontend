@@ -1,0 +1,245 @@
+$blue-darker : #012a4a ;
+$blue-dark: #274C77;
+$blue : #A3CEF1 ;
+$blue-cyan: #51BCD5;
+$blue-default: #6096BA;
+$grey : #8B8C89;
+$white : #E7ECEF ;
+$color-blue: #0000FF;
+.coloredSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(-45deg,  $blue-darker,$blue-dark, $blue-default, $blue-darker);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+      }
+    50% {
+      background-position: 100% 50%;
+      }
+    100% {
+      background-position: 0% 50%;
+      }
+}
+
+$textColor: #444444;
+$gray: #bbb;
+$bg: whitesmoke;
+$pgb: #42c8cb;
+$pgt: #6bffc8;
+$dot: #349a98;
+$bgb: #ff4164;
+$bgt: #ff886b;
+$bdot1: #59e8c8;
+$bdot2: #ffee71;
+$bdot3: #6654af;
+$bdot4: #343434;
+$bdot5: #dfdfdf;
+$star: #fe6067;
+$discount: #fe6168;
+
+@mixin bp($bp,
+  $min-max: min-width){
+    $em: $bp/16;
+    @media(#{$min-max}: #{$em}em){
+      @content;
+    }
+}
+
+.container{
+  margin: 30px;
+  margin-top: 120px;
+  width: 125%;
+  max-width: 1100px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+h5{
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 14px;
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+  color: $gray;
+}
+
+.product{
+  &-image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, $blue-cyan 0%, $blue-dark 100%);
+    border-radius: 20px 20px 0 0;
+    padding: 55px 0;
+    width: 100%;
+    margin: auto;
+  }
+  &-pic{
+    max-width: 180px;
+    position: relative;
+    left: 0;
+    margin: 40px 0;
+    filter: drop-shadow(-6px 40px 23px rgba(black, 0.5));
+  }
+  &-details{
+    padding: 40px;
+    background-color: white;
+    border-radius: 0 0 20px 20px;
+    .title{
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .colorCat{
+      text-transform: uppercase;
+      font-style: italic;
+      color: $gray;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .price{
+      font-weight: 700;
+      margin-top: 5px;
+      font-size: 18px;
+      .current{
+        color: $discount;
+        margin-left: 6px;
+      }
+    }
+    .before{
+      text-decoration: line-through;
+    }
+    header{
+      margin-bottom: 50px;
+      position: relative;
+    }
+    article{
+      >h5{
+        margin: 0;
+      }
+      >p{
+        color: $gray;
+        margin: .5em 0;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
+    .controls{
+      margin: 3em 0;
+      >div{
+        flex: 1;
+      }
+      .option{
+        margin-top: 12px;
+        display: inline-block;
+        position: relative;
+        &:hover{
+          color: $textColor;
+        }
+        &::before{
+          content: '';
+          position: absolute;
+          border-width: 2px 2px 0 0;
+          border-style: solid;
+          top: 0;
+          bottom: 0;
+          height: 5px;
+          width: 5px;
+          right: -18px;
+          margin: auto;
+          transform: rotate(135deg);
+        }
+      }
+      >div+div{
+        margin-top: 20px;
+        flex: none;
+      }
+      ul{
+        display: flex;
+        margin: 15px 5px;
+      }
+    }
+    .color li+li{
+      margin-left: 15px;
+    }
+
+    
+    .rate{
+      position: static;
+      margin-top: 10px;
+      a{
+        font-size: 18px;
+        color: $gray;
+        &.active,
+        &:hover{
+          color: $star;
+        }
+      }
+    }
+  }
+}
+
+
+.img {
+	width: 150px;
+	height: 150px;
+}
+
+@include bp(600){
+  .product-details{
+    .rate{
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      margin-top: 0;
+    }
+    .controls > div{
+      &.qty{
+        width: 60px;
+      }
+    }
+    .controls > div + div{
+      border-left: 2px solid rgba($gray, .5);
+      padding-left: 25px;
+      padding-right: 25px;
+      width: 100px;
+      margin-top: 0;
+    }
+    .controls{
+      display: flex;
+    }
+  }
+}
+
+@include bp(900){
+  .container{
+    display: flex;
+    flex-direction: row;
+    align-items: normal;
+    margin: auto;
+  }
+  .product-image{
+    border-radius: 20px 0 0 20px;
+    max-width: 330px;
+  }
+  .product-pic{
+    left: -40px;
+    max-width: 330px;
+  }
+  .product-details{
+    width: 100%;
+    border-radius: 0 20px 20px 0;
+  }
+}

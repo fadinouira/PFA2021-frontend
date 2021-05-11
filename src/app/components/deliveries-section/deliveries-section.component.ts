@@ -31,7 +31,6 @@ export class DeliveriesSectionComponent implements OnInit {
     .subscribe((deliveries : Delivery[]) => {
       this.deliveries = deliveries ;
       this.isLoading = false;
-      console.log(this.deliveries);
     });
     this.maxDeliveriesSub = this.deliveryService.getMaxDeliveriesListener()
     .subscribe((totalDeliveries : number) => {

@@ -15,6 +15,7 @@ import { MessagesComponent } from './notifications/messages/messages.component';
 import { AuthGuard } from './auth/Services/auth.guard';
 
 import { AddDelivComponent } from "./components/add-deliv/add-deliv.component";
+import { DeliveryComponent } from './components/delivery/delivery.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,7 +25,9 @@ const routes: Routes =[
     { path: 'messages',          component: MessagesComponent },
     { path: 'signup',           component: SignupComponent },
     { path: 'signin',           component: SigninComponent },
-    { path: 'add-deliv',        component: AddDelivComponent  }
+    { path: 'add-deliv',        component: AddDelivComponent  },
+    { path: 'delivery/:id',        component: DeliveryComponent  }
+
 ];
 
 @NgModule({
