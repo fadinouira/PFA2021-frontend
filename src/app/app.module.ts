@@ -25,6 +25,7 @@ import { MessagesComponent } from './notifications/messages/messages.component';
 import { NotificationsComponent } from './notifications/notifications/notifications.component';
 import { MessagesService } from './notifications/services/messages.service';
 import { WebSocketService } from './notifications/services/web-socket.service';
+import { AddItemComponent } from './items/add-item/add-item.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { WebSocketService } from './notifications/services/web-socket.service';
     LoaderComponent,
     MessagesComponent,
     NotificationsComponent,
+    AddItemComponent,
   ],
   imports: [
     BrowserModule,

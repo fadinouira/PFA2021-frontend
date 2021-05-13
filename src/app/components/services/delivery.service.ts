@@ -13,8 +13,8 @@ export class DeliveryService {
   private deliveries : Delivery[] = [] ;
   private deliveriesUpdated = new Subject<Delivery[]>();
 
-  private delivery : any = null ;
-  private deliveryUpdated = new Subject<any>();
+  private delivery : Delivery = null ;
+  private deliveryUpdated = new Subject<Delivery>();
 
   private maxDeliveries : number ;
   private maxDeliveriesUpdated = new Subject<number>();
@@ -79,7 +79,22 @@ export class DeliveryService {
   getOne(id : string) {
     this.http.get<{message : string,delivery : any}>(this.url + '/api/deliveries/'+id)
       .subscribe(response =>{
-        this.delivery =  response.delivery ;
+        this.delivery =  {
+          id : response.delivery._id ,
+          owner : response.delivery.owner,
+          ownerPhoto : response.delivery.ownerPhoto,
+          ownerPhone : response.delivery.ownerPhone,
+          ownerEmail : response.delivery.ownerEmail,
+          ownerName : response.delivery.ownerName, 
+          originAddress : response.delivery.originAddress,
+          deliveryAddress : response.delivery.deliveryAddress,
+          departDate : new Date(response.delivery.departDate),
+          expectedArrivalDate : new Date(response.delivery.expectedArrivalDate),
+          onRoad : response.delivery.onRoad,
+          onDestination : response.delivery.onDestination,
+          acceptedItems : response.delivery.acceptedItems,
+          listedItems : response.delivery.listedItems,
+        } ;
         this.deliveryUpdated.next(this.delivery);
       });
     }

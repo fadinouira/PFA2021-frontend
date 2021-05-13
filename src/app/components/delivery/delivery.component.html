@@ -1,55 +1,138 @@
 <section class="coloredSection" >
     
-    <div class="container">
-        <!--   https://www.jerecho.com/codepen/nike-product-page/ -->
-          <div class="product-image">
-            <img 
-            src={{delivery.ownerPhoto}} 
-            class="img-circle img-no-padding img-responsive img" 
-            alt="Rounded Image" 
-            >   
-            
-            <h1 class="title">Nike Roshe Run</h1>
-        </div>
-          
-          <div class="product-details">
-            <header>
-              <h1 class="title">From: {{delivery.originAddress}}</h1>
-              <h1 class="title">To: {{delivery.deliveryAddress}}</h1>
-              <span class="colorCat">mint green</span>
-              <div class="price">
-                <span class="before">$150</span>
-                <span class="current">$144.99</span>
-              </div>
-              <div class="rate">
-                <a href="#!" class="active">★</a>
-                <a href="#!" class="active">★</a>
-                <a href="#!" class="active">★</a>
-                <a href="#!">★</a>
-                <a href="#!">★</a>
-              </div>
-            </header>
-            <article>
-              <h5>Description</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </article>
-            <div class="controls">
-              <div class="color">
-                <h5>color</h5>
-                
-              </div>
-              <div class="size">
-                <h5>size</h5>
-                <a href="#!" class="option">(UK 8)</a>
-              </div>
-              <div class="qty">
-                <h5>qty</h5>
-                <a href="#!" class="option">(1)</a>
-              </div>
-            </div>
-          </div>
-          
-        </div>
+  <div class="container">
+
+    <div class="product-image" id="left">
+
+      <img 
+      src={{delivery.ownerPhoto}} 
+      class="img-circle img-no-padding img-responsive img" 
+      alt="Rounded Image" 
+      >   
+      
+      <h1 class="info">{{delivery.ownerName}}</h1>
+      <a href="#"><i class="fa fa-phone"></i> {{delivery.ownerPhone}}</a>
+      <a href="#"><i class="fa fa-envelope"></i> {{delivery.ownerEmail}}</a>
+
+      <div class="map-card">
+                        
+      </div>
+      
+    </div>
         
+    <div class="product-details" id="right">
+      <header>
+        <h1 class="title">{{delivery.originAddress}} To {{delivery.deliveryAddress}}</h1>
+
+        <br>
+
+        <div class="rounded-nav">
+          <ngb-tabset>
+            <ngb-tab>
+              <ng-template ngbTabTitle><h3>Requested Items</h3></ng-template>
+              <ng-template ngbTabContent>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Country</th>
+                      <th scope="col">Area</th>
+                      <th scope="col">Population</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+  
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>
+                        <img [src]="delivery.ownerPhoto" class="mr-2" style="width: 20px">
+                        Ahmed Andolsi
+                      </td>
+                      <td>valise</td>
+                      <td>2Kg</td>
+                    </tr>
+                    <tr class="plus-row" [routerLink]="['/add-item', delivery.id]">
+                      <td></td>
+                      <td class="plus">
+                        <div class="plus">
+                          <i class="fa fa-plus"></i> 
+                        </div>
+                      </td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    
+  
+                  </tbody>
+                </table>
+                
+                
+              </ng-template>
+            </ngb-tab>
+  
+            <ngb-tab id="tab-selectbyid2">
+              <ng-template ngbTabTitle><h3>Accepted Items</h3></ng-template>
+              <ng-template ngbTabContent>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Country</th>
+                      <th scope="col">Area</th>
+                      <th scope="col">Population</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+  
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>
+                        <img [src]="delivery.ownerPhoto" class="mr-2" style="width: 20px">
+                        Rami el bou
+                      </td>
+                      <td>valise</td>
+                      <td>2Kg</td>
+                    </tr>
+  
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>
+                        <img [src]="delivery.ownerPhoto" class="mr-2" style="width: 20px">
+                        Ahmed Andolsi
+                      </td>
+                      <td>valise</td>
+                      <td>2Kg</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>
+                        <img [src]="delivery.ownerPhoto" class="mr-2" style="width: 20px">
+                        Ahmed Andolsi
+                      </td>
+                      <td>valise</td>
+                      <td>2Kg</td>
+                    </tr>
+  
+                  </tbody>
+                </table>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </header>
+      <div class="controls">
+        <div class="size">
+          <h4 class="">Date: <br>{{delivery.departDate.toLocaleDateString()}}</h4>
+        </div>
+        <div class="size">
+          <h4 class="">Depart Time: <br>{{delivery.departDate.toLocaleTimeString('it-IT')}}</h4>
+        </div>
+        <div class="size">
+          <h4 class="">Expected Arrive: <br>{{delivery.expectedArrivalDate.toLocaleTimeString('it-IT')}}</h4>
+        </div>
+      </div>
+    </div>
+    
+  </div>
 
 </section>

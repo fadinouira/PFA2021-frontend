@@ -28,18 +28,10 @@ $color-blue: #0000FF;
 }
 
 $textColor: #444444;
-$gray: #bbb;
 $bg: whitesmoke;
 $pgb: #42c8cb;
 $pgt: #6bffc8;
 $dot: #349a98;
-$bgb: #ff4164;
-$bgt: #ff886b;
-$bdot1: #59e8c8;
-$bdot2: #ffee71;
-$bdot3: #6654af;
-$bdot4: #343434;
-$bdot5: #dfdfdf;
 $star: #fe6067;
 $discount: #fe6168;
 
@@ -72,8 +64,9 @@ ul{
   padding: 0;
 }
 a{
-  text-decoration: none;
-  color: $gray;
+  color: $white;
+  font-weight: bold;
+
 }
 
 .product{
@@ -105,7 +98,7 @@ a{
     .colorCat{
       text-transform: uppercase;
       font-style: italic;
-      color: $gray;
+      color: $blue-cyan;
       font-weight: 700;
       font-size: 14px;
     }
@@ -130,7 +123,7 @@ a{
         margin: 0;
       }
       >p{
-        color: $gray;
+        color: $blue-dark;
         margin: .5em 0;
         font-size: 14px;
         line-height: 1.6;
@@ -181,7 +174,7 @@ a{
       margin-top: 10px;
       a{
         font-size: 18px;
-        color: $gray;
+        color: $grey;
         &.active,
         &:hover{
           color: $star;
@@ -206,15 +199,16 @@ a{
       margin-top: 0;
     }
     .controls > div{
-      &.qty{
-        width: 60px;
-      }
+      color : $blue-dark ;
+      width: 200px;
+      
     }
     .controls > div + div{
-      border-left: 2px solid rgba($gray, .5);
+      color : $blue-dark ;
+      border-left: 2px solid rgba($blue-dark, .5);
       padding-left: 25px;
       padding-right: 25px;
-      width: 100px;
+      width: 200px;
       margin-top: 0;
     }
     .controls{
@@ -243,3 +237,33 @@ a{
     border-radius: 0 20px 20px 0;
   }
 }
+
+.info {
+  color : $white ;
+}
+
+.plus-row{
+  background: linear-gradient(to bottom, $blue-cyan 0%, $blue-dark 90%);
+  cursor: pointer;
+}
+
+.plus {
+  margin-left : 90%; 
+  color: $white;
+}
+
+
+.table {
+  border: 3px solid $blue-cyan;
+}
+
+.map-card {
+  margin-top: 8%;
+  min-width : 80% ;
+  height: 170px ;
+  border: 2px solid rgb(224, 224, 224);
+  border-radius: 25px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+

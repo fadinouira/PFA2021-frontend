@@ -16,6 +16,7 @@ import { AuthGuard } from './auth/Services/auth.guard';
 
 import { AddDelivComponent } from "./components/add-deliv/add-deliv.component";
 import { DeliveryComponent } from './components/delivery/delivery.component';
+import { AddItemComponent } from './items/add-item/add-item.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,10 +24,17 @@ const routes: Routes =[
     { path: 'user-profile',     component: ProfileComponent , canActivate:[AuthGuard]},
     { path: 'landing',          component: LandingComponent },
     { path: 'messages',          component: MessagesComponent },
+
     { path: 'signup',           component: SignupComponent },
     { path: 'signin',           component: SigninComponent },
+
     { path: 'add-deliv',        component: AddDelivComponent  },
-    { path: 'delivery/:id',        component: DeliveryComponent  }
+    { path: 'delivery/:id',        component: DeliveryComponent  },
+
+    { path: 'add-item/:id',        component: AddItemComponent  },
+    { path: 'add-item',        component: AddItemComponent  },
+
+
 
 ];
 

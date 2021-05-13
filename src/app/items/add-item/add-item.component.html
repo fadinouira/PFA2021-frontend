@@ -1,0 +1,55 @@
+<section class="coloredSection">
+    <div  class="container {{this.status}} " id="container">
+        <div class="form-container sign-up-container card">
+            <form action="#">
+                <h3>Select from your items</h3>
+
+                
+                <br>
+                <button class="btn btn-round btn-block btn-info">Select</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form [formGroup]="form" >
+                <h1>Add your item</h1>
+                <input
+                    formControlName="name"
+                    name="name"
+                    class="{{nameClass}}" 
+                    type="text" 
+                    placeholder="{{nameError}}" 
+                />
+                <input 
+                    formControlName="weight"
+                    name="weight"
+                    class="{{weightClass}}" 
+                    type="number"
+                    placeholder="{{weightError}}" 
+                />
+                <br><br>
+                <button class="btn btn-round btn-info btn-block">Add</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Select an existing item</h1>
+                    <p>Please select one of your items</p>
+                    <br>
+                    
+                    <p>Or</p>
+                    <br>
+                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(0)">Add Item</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Already created ?</h1>
+                    <p>Select from your existing items</p>
+                    <br>
+                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(1)" >Select an existing</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+

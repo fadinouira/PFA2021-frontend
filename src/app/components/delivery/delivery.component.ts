@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DeliveryService } from '../services/delivery.service';
@@ -8,13 +8,19 @@ import { DeliveryService } from '../services/delivery.service';
   templateUrl: './delivery.component.html',
   styleUrls: ['./delivery.component.scss']
 })
-export class DeliveryComponent implements OnInit {
+export class DeliveryComponent implements OnInit ,AfterViewInit{
   id : string ;
   delivery : any ;
   private deliverySub: Subscription;
 
 
   constructor(private activatedRoute: ActivatedRoute, private db : DeliveryService) { }
+  ngAfterViewInit(): void {
+    const left = document.getElementById("left");
+    const right = document.getElementById("right");
+    console.log(right.clientHeight);
+    left.style.minHeight = right.clientHeight+"px" ;
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -24,8 +30,11 @@ export class DeliveryComponent implements OnInit {
     this.deliverySub = this.db.getDeliveryListener()
     .subscribe((delivery :any) => {
       this.delivery = delivery ;
-      console.log(delivery);
+      
     });
+
+
+
     
   }
 
@@ -34,3 +43,5 @@ export class DeliveryComponent implements OnInit {
   }
 
 }
+
+
