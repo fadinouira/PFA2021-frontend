@@ -1,4 +1,13 @@
 
+$blue-darker : #012a4a ;
+$blue-dark: #274C77;
+$blue : #A3CEF1 ;
+$blue-cyan: #51BCD5;
+$blue-default: #6096BA;
+$grey : #8B8C89;
+$white : #E7ECEF ;
+$color-blue: #0000FF;
+
 .coloredSection {
     display: flex;
     justify-content: center;
@@ -216,3 +225,15 @@ form {
 	width: 150px;
 	height: 150px;
 }
+
+.table {
+	border: 3px solid $blue-cyan;
+  }
+
+.plus {
+	color : $blue-cyan ;
+	border: none;
+    cursor:pointer;
+	background-color: Transparent;
+
+  }

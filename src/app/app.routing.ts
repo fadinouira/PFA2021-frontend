@@ -3,7 +3,7 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ComponentsComponent } from './components/components.component';
+import { ComponentsComponent } from './deliveries/components.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { LandingComponent } from './examples/landing/landing.component';
 
@@ -14,8 +14,8 @@ import { MessagesComponent } from './notifications/messages/messages.component';
 
 import { AuthGuard } from './auth/Services/auth.guard';
 
-import { AddDelivComponent } from "./components/add-deliv/add-deliv.component";
-import { DeliveryComponent } from './components/delivery/delivery.component';
+import { AddDelivComponent } from "./deliveries/add-deliv/add-deliv.component";
+import { DeliveryComponent } from './deliveries/delivery/delivery.component';
 import { AddItemComponent } from './items/add-item/add-item.component';
 
 const routes: Routes =[

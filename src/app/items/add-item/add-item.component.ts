@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Item } from '../services/item.model';
+import { ItemService } from '../services/item.service';
 
 @Component({
   selector: 'app-add-item',
@@ -12,6 +16,10 @@ export class AddItemComponent implements OnInit {
     form : FormGroup ;
     clicked1 : boolean ;
     clicked2 : boolean ;
+    id : string ;
+
+    items :Item[] = [];
+    private itemsSub: Subscription;
 
     nameClass ;
     nameError ;
@@ -19,7 +27,7 @@ export class AddItemComponent implements OnInit {
     weightClass ;
     weightError ;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private db : ItemService) { }
 
   ngOnInit(): void {
     this.nameClass = "input" ;
@@ -27,6 +35,14 @@ export class AddItemComponent implements OnInit {
 
     this.weightClass = "input";
     this.weightError = "Weight en gram";
+    this.db.getUserItem();
+    this.db.getItemsistener().subscribe((items : Item[]) => {
+      this.items = items ;
+    });
+
+    this.activatedRoute.params.subscribe(params => {
+      this.id = params['id'];
+    });
 
     this.form = new FormGroup({
       name : new FormControl(
@@ -47,6 +63,7 @@ export class AddItemComponent implements OnInit {
             Validators.minLength(5)]
         }),
     });
+
   }
 
   onSwitch(a : number){
@@ -57,5 +74,22 @@ export class AddItemComponent implements OnInit {
     else 
     this.status = "";
   }
+
+  addItem() {
+    const item : Item = {
+      id : null ,
+      owner : null,
+      name : this.form.get('name').value,
+      status : 0,
+      weight :  this.form.get('weight').value,
+    }
+    this.db.addItem(item,this.id);
+  }
+
+  addExistedItem(itemId){
+    this.db.addExistedItem(itemId,this.id);
+  }
+
+
 
 }

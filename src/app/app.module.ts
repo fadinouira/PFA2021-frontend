@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
-import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -26,6 +25,14 @@ import { NotificationsComponent } from './notifications/notifications/notificati
 import { MessagesService } from './notifications/services/messages.service';
 import { WebSocketService } from './notifications/services/web-socket.service';
 import { AddItemComponent } from './items/add-item/add-item.component';
+import { CommonModule } from '@angular/common';
+import { NouisliderModule } from 'ng2-nouislider';
+import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ComponentsComponent } from './deliveries/components.component';
+import { DeliveriesSectionComponent } from './deliveries/deliveries-section/deliveries-section.component';
+import { AddDelivComponent } from './deliveries/add-deliv/add-deliv.component';
+import { DeliveryComponent } from './deliveries/delivery/delivery.component';
 
 
 @NgModule({
@@ -39,6 +46,11 @@ import { AddItemComponent } from './items/add-item/add-item.component';
     MessagesComponent,
     NotificationsComponent,
     AddItemComponent,
+    ComponentsComponent,
+    DeliveriesSectionComponent,
+    AddDelivComponent,
+    DeliveryComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -46,12 +58,14 @@ import { AddItemComponent } from './items/add-item/add-item.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    NouisliderModule,
+    JwBootstrapSwitchNg2Module,
+    MatPaginatorModule,  
   ],
   providers: [{provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi : true},MessagesService,WebSocketService],
   bootstrap: [AppComponent]

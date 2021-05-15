@@ -12,6 +12,7 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
   id : string ;
   delivery : any ;
   private deliverySub: Subscription;
+  isLoading : boolean ;
 
 
   constructor(private activatedRoute: ActivatedRoute, private db : DeliveryService) { }
@@ -23,6 +24,7 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
   }
 
   ngOnInit(): void {
+    this.isLoading = true ;
     this.activatedRoute.params.subscribe(params => {
       this.getDelivery(params['id']);
     });
@@ -30,7 +32,7 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
     this.deliverySub = this.db.getDeliveryListener()
     .subscribe((delivery :any) => {
       this.delivery = delivery ;
-      
+      this.isLoading = false ;
     });
 
 

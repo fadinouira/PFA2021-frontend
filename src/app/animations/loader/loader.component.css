@@ -1,14 +1,8 @@
 
-  
-  .loader-wrapper{
-    position:fixed;
-    z-index:1090;
-    height:100vh;
-    width:100vw;
-    background-color:rgba(240,240,240,0.5);
-  }
-  
-  .truck-wrapper{
+.loader-wrapper{
+    min-height: 300px;
+}
+.truck-wrapper{
     height: 200px;
     width: 200px;
     border: 4px solid #1DD3D6;
@@ -16,7 +10,7 @@
     top:50%;
     left:50%;
     transform:translateX(-50%) translateY(-50%) scale(0.8);
-  background:white;
+    background:white;
     animation:bg 0.5s linear infinite;
     /* border-bottom:3px solid #404143; */
     border-radius: 100%;

@@ -1,16 +1,41 @@
 <section class="coloredSection">
     <div  class="container {{this.status}} " id="container">
         <div class="form-container sign-up-container card">
-            <form action="#">
-                <h3>Select from your items</h3>
-
+            <form action="#" >
+                <h2 *ngIf="items.length == 0">You have no Items</h2>
+                <h3 *ngIf="items.length > 0">Select from your items</h3>
+                <table class="table table-striped" *ngIf="items.length > 0">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Select</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+    
+                      <tr *ngFor="let item of items">
+                        <th>{{item.name}}</th>
+                        <td>
+                          {{item.weight}}
+                        </td>
+                        <td>  
+                            <button class="plus" (click)="addExistedItem(item.id)">
+                                <i class="fa fa-plus"></i> 
+                            </button>
+                        </td> 
+                      </tr>
+                      
+    
+                    </tbody>
+                  </table>
                 
                 <br>
-                <button class="btn btn-round btn-block btn-info">Select</button>
+                <button class="btn btn-round btn-block btn-info" *ngIf="items.length > 0">Select</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form [formGroup]="form" >
+            <form action="#" [formGroup]="form"  (submit)="addItem()">
                 <h1>Add your item</h1>
                 <input
                     formControlName="name"
@@ -27,7 +52,7 @@
                     placeholder="{{weightError}}" 
                 />
                 <br><br>
-                <button class="btn btn-round btn-info btn-block">Add</button>
+                <button type="submit" class="btn btn-round btn-info btn-block">Add</button>
             </form>
         </div>
         <div class="overlay-container">

@@ -1,6 +1,6 @@
 <section class="coloredSection" >
-    
-  <div class="container">
+  <app-loader *ngIf="isLoading"></app-loader>  
+  <div class="container" *ngIf="!isLoading">
 
     <div class="product-image" id="left">
 
