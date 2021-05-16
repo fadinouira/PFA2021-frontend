@@ -24,38 +24,6 @@ export class ItemService {
 
   constructor(private http : HttpClient, private router : Router,private auth :AuthService){}
 
-//   getDeliveries(pageSize : number , currentPage : number) {
-//     const queryParams = "?pageSize="+pageSize+"&currentPage="+currentPage;
-//     this.http.get<{message : String , deliveries : any ,maxPages : number}>(this.url+'/api/deliveries'+ queryParams)
-//     .pipe(map((postData) => {
-//       return {
-//         maxPages : postData.maxPages ,
-//         deliveries : postData.deliveries.map(delivery => {
-//         return {
-//           id : delivery._id ,
-//           owner : delivery.owner,
-//           ownerPhoto : delivery.ownerPhoto,
-//           ownerPhone : delivery.ownerPhone,
-//           ownerEmail : delivery.ownerEmail,
-//           name : delivery.ownerName, 
-//           originAddress :delivery.originAddress,
-//           deliveryAddress : delivery.deliveryAddress,
-//           expectedArrivalDate : new Date(delivery.expectedArrivalDate),
-//           onRoad : delivery.onRoad,
-//           onDestination : delivery.onDestination
-//         }
-//       })};
-//     }))
-//     .subscribe((deliveries)=>{
-//       console.log(deliveries);
-//       this.deliveries = deliveries.deliveries ;
-//       this.deliveriesUpdated.next([...this.deliveries]);
-//       this.maxDeliveries = deliveries.maxPages ;
-//       this.maxDeliveriesUpdated.next(this.maxDeliveries);
-//     });
-
-//   }
-
   addItem(item : Item ,id : string){
     console.log(item);
     this.http.post<{message : string,item : Item }>(this.url+'/api/items', item)
@@ -123,7 +91,6 @@ export class ItemService {
         .subscribe((result)=>{
             let item : Item = result.item ;
             this.requestedItems.push(item) ;
-            this.requestedItemsUpdated.next(this.requestedItems);
           });
   }
 
@@ -132,27 +99,20 @@ export class ItemService {
     ids.forEach(id => {
       this.getOneItem(id);
     });
-
   }
 
   clearRequestedItems(){
-    let i = 0 ;
     console.log(this.requestedItems);
     this.requestedItems.forEach(element => {
       this.requestedItems.pop(); 
-      i++;
-      console.log(i);
     }); 
-    let items : Item[] = [] ;
-    this.requestedItemsUpdated = new Subject<Item[]>()
-    this.requestedItemsUpdated.next(items);
-    console.log(this.requestedItems);
+    this.requestedItems = [];
 
 
   }
 
-  getRequestedItemsListener(){
-    return this.requestedItemsUpdated.asObservable();
+  getRequestedItemsList(){
+    return this.requestedItems;
   }
 
 
@@ -160,28 +120,3 @@ export class ItemService {
     return this.itemsUpdated.asObservable();
   }
 }
-
-//   getOne(id : string) {
-//     this.http.get<{message : string,delivery : any}>(this.url + '/api/deliveries/'+id)
-//       .subscribe(response =>{
-//         this.delivery =  {
-//           id : response.delivery._id ,
-//           owner : response.delivery.owner,
-//           ownerPhoto : response.delivery.ownerPhoto,
-//           ownerPhone : response.delivery.ownerPhone,
-//           ownerEmail : response.delivery.ownerEmail,
-//           ownerName : response.delivery.ownerName, 
-//           originAddress : response.delivery.originAddress,
-//           deliveryAddress : response.delivery.deliveryAddress,
-//           departDate : new Date(response.delivery.departDate),
-//           expectedArrivalDate : new Date(response.delivery.expectedArrivalDate),
-//           onRoad : response.delivery.onRoad,
-//           onDestination : response.delivery.onDestination,
-//           acceptedItems : response.delivery.acceptedItems,
-//           listedItems : response.delivery.listedItems,
-//         } ;
-//         this.deliveryUpdated.next(this.delivery);
-//       });
-//     }
-
-

@@ -16,7 +16,6 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
   private deliverySub: Subscription;
 
   requestedItems : Item[] ;
-  private requestedItemsSub: Subscription;
 
   isLoading : boolean ;
   items : Item[];
@@ -31,6 +30,7 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
   }
 
   ngOnInit(): void {
+    console.log("on unit");
     this.isLoading = true ;
     this.activatedRoute.params.subscribe(params => {
       this.getDelivery(params['id']);
@@ -39,19 +39,22 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
     this.deliverySub = this.db.getDeliveryListener()
     .subscribe((delivery :any) => {
       this.delivery = delivery ;
-      console.log(this.delivery);
       this.itemsDb.getRequestedItems(this.delivery.listedItems);
-      this.requestedItemsSub = this.itemsDb.getRequestedItemsListener()
-        .subscribe((items) => {
-          this.requestedItems = items ;
-          this.isLoading = false ;
-        })
+      this.requestedItems = this.itemsDb.getRequestedItemsList() ;  
+      this.isLoading = false ;
+
     }); 
   }
 
   ngOnDestroy() {
-    console.log("destroyed");
-    this.itemsDb.clearRequestedItems();
+    this.id = null ;
+    this.delivery = null ;
+    this.deliverySub.unsubscribe() ;
+
+    this.requestedItems = null ;
+
+    this.isLoading = null ;
+    this.items = null ;
   }
 
   getDelivery(id : string) {
