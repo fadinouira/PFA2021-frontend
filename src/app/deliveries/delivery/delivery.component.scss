@@ -245,10 +245,16 @@ a{
 .plus-row{
   background: linear-gradient(to bottom, $blue-cyan 0%, $blue-dark 90%);
   cursor: pointer;
+  :after {
+    * {
+      background: linear-gradient(to bottom, $blue-cyan 0%, $blue-cyan 90%) !important;
+    }
+    
+  }
 }
 
 .plus {
-  margin-left : 90%; 
+  margin-right : 90%; 
   color: $white;
 }
 

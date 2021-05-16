@@ -1,5 +1,6 @@
 <section class="coloredSection">
-    <div  class="container {{this.status}} " id="container">
+    <app-loader *ngIf="isLoading"></app-loader>  
+    <div  class="container {{this.status}} " id="container" *ngIf="!isLoading">
         <div class="form-container sign-up-container card">
             <form action="#" >
                 <h2 *ngIf="items.length == 0">You have no Items</h2>

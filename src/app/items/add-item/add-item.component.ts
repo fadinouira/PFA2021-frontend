@@ -30,6 +30,7 @@ export class AddItemComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private db : ItemService) { }
 
   ngOnInit(): void {
+    this.isLoading = true ;
     this.nameClass = "input" ;
     this.nameError = "Product Name" ;
 
@@ -38,6 +39,7 @@ export class AddItemComponent implements OnInit {
     this.db.getUserItem();
     this.db.getItemsistener().subscribe((items : Item[]) => {
       this.items = items ;
+      this.isLoading = false ;
     });
 
     this.activatedRoute.params.subscribe(params => {

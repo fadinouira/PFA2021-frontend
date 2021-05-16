@@ -13,6 +13,10 @@ export class ItemService {
   private items : Item[] = [] ;
   private itemsUpdated = new Subject<Item[]>();
 
+  requestedItems : Item[] = [];
+  requestedItemsUpdated = new Subject<Item[]>();
+
+
   private item : Item = null ;
   private itemUpdated = new Subject<Item>();
 
@@ -63,6 +67,7 @@ export class ItemService {
       this.http.put<{message : string}>(request,{"item" : item.id})
       .subscribe((result)=>{
         console.log(result.message);
+        this.router.navigate(['/delivery/',id]);
       });
     });
   }
@@ -72,6 +77,7 @@ export class ItemService {
     this.http.put<{message : string}>(request,{"item" : itemId})
       .subscribe((result)=>{
         console.log(result.message);
+        this.router.navigate(['/delivery/',id]);
       });
   }
 
@@ -97,8 +103,58 @@ export class ItemService {
             this.itemsUpdated.next(this.items);
 
           });
+  }
+
+  getOneItem(id : string){
+    this.http.get<{message : string,item : any}>(this.url + '/api/items/'+id)
+        .pipe(
+            map((result) => {
+                return {
+                    message : result.message ,
+                    item : {
+                      id : result.item._id,
+                      owner : result.item.owner,
+                      name : result.item.name,
+                      status : result.item.status,
+                      weight : result.item.weight
+                    }
+            };
+        }))
+        .subscribe((result)=>{
+            let item : Item = result.item ;
+            this.requestedItems.push(item) ;
+            this.requestedItemsUpdated.next(this.requestedItems);
+          });
+  }
+
+  getRequestedItems(ids : string[]){
+    this.clearRequestedItems();
+    ids.forEach(id => {
+      this.getOneItem(id);
+    });
 
   }
+
+  clearRequestedItems(){
+    let i = 0 ;
+    console.log(this.requestedItems);
+    this.requestedItems.forEach(element => {
+      this.requestedItems.pop(); 
+      i++;
+      console.log(i);
+    }); 
+    let items : Item[] = [] ;
+    this.requestedItemsUpdated = new Subject<Item[]>()
+    this.requestedItemsUpdated.next(items);
+    console.log(this.requestedItems);
+
+
+  }
+
+  getRequestedItemsListener(){
+    return this.requestedItemsUpdated.asObservable();
+  }
+
 
   getItemsistener(){
     return this.itemsUpdated.asObservable();

@@ -1,3 +1,11 @@
+$blue-darker : #012a4a ;
+$blue-dark: #274C77;
+$blue : #A3CEF1 ;
+$blue-cyan: #51BCD5;
+$blue-default: #6096BA;
+$grey : #8B8C89;
+$white : #E7ECEF ;
+$color-blue: #0000FF;
 
 .loader-wrapper{
     min-height: 300px;
@@ -5,7 +13,7 @@
 .truck-wrapper{
     height: 200px;
     width: 200px;
-    border: 4px solid #1DD3D6;
+    border: 4px solid $blue-cyan;
     position:absolute;
     top:50%;
     left:50%;
@@ -15,23 +23,23 @@
     /* border-bottom:3px solid #404143; */
     border-radius: 100%;
     overflow:hidden;
-    box-shadow:inset 0px 0px 10px 4px rgba(0,0,0,0.3),inset 0px 0px 5px 0px #1DD3D6;
+    box-shadow:inset 0px 0px 10px 4px rgba(0,0,0,0.3),inset 0px 0px 5px 0px $blue-cyan;
   }
   
   .truck-wrapper:after{
-    content:'Loading';
+    content:'Loading..';
     font-size:20px;
     position:absolute;
     bottom:0px;
     text-align:center;
     width:100%;
     border-top:1px solid #1DD3D6;
-  background: rgb(30,252,200);
-  background: -moz-linear-gradient(left, rgba(30,252,200,1) 0%, rgba(29,211,214,1) 100%);
-  background: -webkit-linear-gradient(left, rgba(30,252,200,1) 0%,rgba(29,211,214,1) 100%);
-  background: linear-gradient(to right, rgba(30,252,200,1) 0%,rgba(29,211,214,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1efcc8', endColorstr='#1dd3d6',GradientType=1 );
-    color:white;
+    background: rgb(30,252,200);
+    background: -moz-linear-gradient(left, $blue-cyan 0%,$blue-darker 100%);
+    background: -webkit-linear-gradient(left, $blue-cyan 0%,$blue-darker 100%);
+    background: linear-gradient(to right, $blue-cyan 0%,$blue-darker 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1efcc8', endColorstr='#1dd3d6',GradientType=1 );
+    color:$white;
     padding-top:8px;
     padding-bottom:18px;
     animation: bg 3s linear infinite;
@@ -50,10 +58,10 @@
   
   
   .truck > .truck-container {
-    background: rgb(175,189,195);
-  background: -moz-linear-gradient(-45deg, rgba(175,189,195,1) 0%, rgba(175,189,195,1) 50%, rgba(143,163,173,1) 51%, rgba(143,163,173,1) 100%);
-  background: -webkit-linear-gradient(-45deg, rgba(175,189,195,1) 0%,rgba(175,189,195,1) 50%,rgba(143,163,173,1) 51%,rgba(143,163,173,1) 100%);
-  background: linear-gradient(135deg, rgba(175,189,195,1) 0%,rgba(175,189,195,1) 50%,rgba(143,163,173,1) 51%,rgba(143,163,173,1) 100%);
+  background: $blue-default;
+  background: -moz-linear-gradient(-45deg, $blue-darker 0%, $blue-dark 50%, $blue-default 51%, $blue 100%);
+  background: -webkit-linear-gradient(-45deg, $blue-darker 0%, $blue-dark 50%, $blue-default 51%, $blue 100%);
+  background: linear-gradient(135deg, $blue-darker 0%, $blue-dark 50%, $blue-default 51%, $blue 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afbdc3', endColorstr='#8fa3ad',GradientType=1 );
     height:50px;
     width:80px;
@@ -65,14 +73,14 @@
   
   .truck > .glases{
     background: rgb(40,181,245);
-  background: -moz-linear-gradient(-45deg, rgba(40,181,245,1) 0%, rgba(40,181,245,1) 50%, rgba(2,153,227,1) 52%, rgba(2,153,227,1) 100%);
+  background: -moz-linear-gradient(-45deg, $blue-cyan 0%, rgba(40,181,245,1) 50%, rgba(2,153,227,1) 52%, rgba(2,153,227,1) 100%);
   background: -webkit-linear-gradient(-45deg, rgba(40,181,245,1) 0%,rgba(40,181,245,1) 50%,rgba(2,153,227,1) 52%,rgba(2,153,227,1) 100%);
   background: linear-gradient(135deg, rgba(40,181,245,1) 0%,rgba(40,181,245,1) 50%,rgba(2,153,227,1) 52%,rgba(2,153,227,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28b5f5', endColorstr='#0299e3',GradientType=1 );
     position:absolute;
     height:25px;
     width:25px;
-    border:4px solid #FBD734;
+    border:4px solid $blue-dark;
     border-bottom:none;
     top:35px;
     left:95px;
@@ -82,7 +90,7 @@
   .truck > .glases:after{
     content:'';
     display:block;
-    background-color:#FBD734;
+    background-color:$blue-dark;
     height:13px;
     width:10px;
     position:absolute;
@@ -98,7 +106,7 @@
   .truck > .glases:before{
     content:'';
     display:block;
-    background-color:#F9BF2C;
+    background-color:$blue-dark;
     height:12px;
     width:16px;
     position:absolute;
@@ -108,7 +116,7 @@
   }
   
   .truck > .bonet{
-    background-color:#F9BF2C;
+    background-color:$blue-dark;
     position:absolute;
     width:124px;
     height:15px;
@@ -137,7 +145,7 @@
   
   .truck > .base{
     position:absolute;
-    background-color:#445A64;
+    background-color:$blue-default;
     width:106px;
     height:15px;
     border-top-right-radius:10px;
@@ -161,7 +169,7 @@
   .truck > .base:after{
      content:'';
     display:block;
-    background-color:RGB(84,110,122);
+    background-color:$blue-dark;
     height:10px;
     width:20px;
     position:absolute;
@@ -174,7 +182,7 @@
   .truck > .base-aux{
     width:82px;
     height:8px;
-    background-color:#F9BF2C;
+    background-color:$blue-dark;
     position:absolute;
     top:65px;
     left:14px;
@@ -193,9 +201,9 @@
      
     border-radius:100%;
     position:absolute;
-  background: rgb(84,110,122);
-  background: -moz-linear-gradient(-45deg, rgba(84,110,122,1) 0%, rgba(84,110,122,1) 49%, rgba(68,90,100,1) 52%, rgba(68,90,100,1) 100%);
-  background: -webkit-linear-gradient(-45deg, rgba(84,110,122,1) 0%,rgba(84,110,122,1) 49%,rgba(68,90,100,1) 52%,rgba(68,90,100,1) 100%);
+  background: $grey;
+  background: -moz-linear-gradient(-45deg, $grey 0%, $grey 49%, $blue-default 52%, $blue-default 100%);
+  background: -webkit-linear-gradient(-45deg, $grey 0%, $grey 49%, $blue-default 52%, $blue-default 100%);
   background: linear-gradient(135deg, rgba(84,110,122,1) 0%,rgba(84,110,122,1) 49%,rgba(68,90,100,1) 52%,rgba(68,90,100,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#546e7a', endColorstr='#445a64',GradientType=1 );
     top:80px;
