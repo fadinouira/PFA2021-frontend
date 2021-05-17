@@ -11,7 +11,7 @@ import { DeliveryService } from '../services/delivery.service';
   templateUrl: './delivery.component.html',
   styleUrls: ['./delivery.component.scss']
 })
-export class DeliveryComponent implements OnInit ,AfterViewInit{
+export class DeliveryComponent implements OnInit {
   id : string ;
   delivery : any ;
   private deliverySub: Subscription;
@@ -25,16 +25,15 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
 
   users : any ;
 
+  connectedUser ;
+
+  owner : boolean ;
+
 
   constructor(private activatedRoute: ActivatedRoute, private db : DeliveryService, private itemsDb : ItemService , private auth : AuthService) { }
-  ngAfterViewInit(): void {
-    const left = document.getElementById("left");
-    const right = document.getElementById("right");
-    console.log(right.clientHeight);
-    left.style.minHeight = right.clientHeight+"px" ;
-  }
 
   ngOnInit(): void {
+    this.connectedUser = this.auth.getUser();
     this.isLoading = true ;
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
@@ -43,6 +42,9 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
 
     this.deliverySub = this.db.getDeliveryListener()
     .subscribe((delivery :any) => {
+      if(delivery.ownerEmail == this.connectedUser.email){
+        this.owner = true ;
+      }
       console.log(delivery);
       this.delivery = delivery ;
       this.itemsDb.getRequestedItems(this.delivery.listedItems);
@@ -59,6 +61,8 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
     this.deliverySub.unsubscribe() ;
 
     this.requestedItems = null ;
+    this.acceptedItems = null ;
+
 
     this.isLoading = null ;
     this.items = null ;
@@ -71,6 +75,24 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
   onAcceptItem(id : string) {
     this.itemsDb.acceptRequestedItem(id , this.id);
     //this.acceptedItems = this.itemsDb.getAcceptedItems(this.delivery.);
+  }
+  
+  onRoad(){
+    let req = {
+      onRoad : true,
+      onDestination : false,
+      item : 2
+    }
+    this.db.onRoad(this.id,req);
+  }
+
+  onDestination(){
+    let req = {
+      onRoad : true,
+      onDestination : true,
+      item : 3
+    }
+    this.db.onRoad(this.id,req);
   }
 
 }

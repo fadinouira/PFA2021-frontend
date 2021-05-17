@@ -123,6 +123,7 @@ export class AuthService {
   private clearAuthData() {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
+    localStorage.removeItem('email');
     localStorage.removeItem('phone');
     localStorage.removeItem('image');
     localStorage.removeItem('expirationDate');

@@ -19,7 +19,6 @@ export class DeliveryService {
   private maxDeliveries : number ;
   private maxDeliveriesUpdated = new Subject<number>();
 
-  private token ;
   private url = 'http://localhost:3200';
 
   constructor(private http : HttpClient, private router : Router,private auth :AuthService){}
@@ -101,6 +100,13 @@ export class DeliveryService {
 
   getDeliveryListener(){
     return this.deliveryUpdated.asObservable();
+  }
+
+  onRoad(id : string,req :any){
+    this.http.put<{message : string}>(this.url + '/api/deliveries/onRoad/'+id,req)
+      .subscribe(response =>{
+        console.log(response.message);
+      });
   }
 
 }

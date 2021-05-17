@@ -296,3 +296,29 @@ tbody{
   text-transform: capitalize;
 }
 
+
+i {
+  .add {
+    color: $blue-cyan;
+    margin-left: 20%;
+    cursor:pointer ;
+  }
+  
+  .check {
+    color : green !important;
+    margin-left: 20% ;
+  }
+}
+
+.btn-owner{
+  button {
+    border-radius: 0%;
+    border: 2px solid $white;
+  }
+  width: calc(100% / 2);
+}
+
+.disabled {
+  cursor : not-allowed ;
+}
+

@@ -119,9 +119,6 @@ export class ItemService {
   }
 
   clearRequestedItems(){
-    this.requestedItems.forEach(element => {
-      this.requestedItems.pop(); 
-    }); 
     this.requestedItems = [];
 
 
@@ -164,10 +161,7 @@ export class ItemService {
   }
 
   clearAcceptedItems(){
-    this.acceptedItems.forEach(element => {
-      this.acceptedItems.pop(); 
-    }); 
-    this.requestedItems = [];
+    this.acceptedItems = [];
   }
 
   getAcceptedItemsList(){

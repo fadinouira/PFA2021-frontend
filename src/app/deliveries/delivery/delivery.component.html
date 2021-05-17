@@ -37,19 +37,20 @@
                       <th scope="col">Client</th>
                       <th scope="col">Parcel</th>
                       <th scope="col">Weight</th>
-                      <th scope="col">Accept</th>
+                      <th *ngIf="owner" scope="col">Accept</th>
                     </tr>
                   </thead>
                   <tbody >
   
                     <tr *ngFor="let item of requestedItems" class="overflow-auto">
-                      <td class="name">
-                        <img [src]="item.ownerPhoto" class="mr-2" style="width: 20px">
+                      <td class="name" >
+                        <img [src]="item.ownerPhoto" class="mr-2" style="width: 22px;height:22px ;border-radius : 15px">
                         {{item.ownerName}}
                       </td>
                       <td>{{item.name}}</td>
                       <td>{{item.weight}} g</td>
-                      <th scope="col" (click)="onAcceptItem(item.id)"><i class="fa fa-plus" style="margin-left: 20%;"></i></th>
+                      <th *ngIf="item.status == 0 && owner" scope="col" (click)="onAcceptItem(item.id)"><i class="fa fa-plus add" style="margin-left: 20%;cursor:pointer;color:#51BCD5"></i></th>
+                      <th *ngIf="item.status != 0 && owner" scope="col"><i class="fa fa-check check" style="margin-left: 20% ; color :green"></i></th>
 
                     
                   </tbody>
@@ -76,16 +77,27 @@
                   <tbody>
   
                     <tr *ngFor="let item of acceptedItems" class="overflow-auto">
-                      <td>
-                        <img [src]="item.ownerPhoto" class="mr-2" style="width: 20px">
+                      <td class="name">
+                        <img [src]="item.ownerPhoto" class="mr-2" style="width: 22px;height:22px ;border-radius : 15px">
                         {{item.ownerName}}
                       </td>
                       <td>{{item.name}}</td>
                       <td>{{item.weight}} g</td>
                     <tr>
-  
                   </tbody>
                 </table>
+
+                <div *ngIf="owner" class="plus" style="display: flex;">
+                  <div class="btn-owner">                  
+                    <button *ngIf="!delivery.onRoad" (click)="onRoad()" class="btn btn-block btn-info" >On Road</button>
+                    <button *ngIf="delivery.onRoad" class="btn btn-block disabled" disabled>On Road</button>
+                  </div>
+                  <div class="btn-owner">                  
+                    <button *ngIf="!delivery.onDestination" (click)="onDestination()" class="btn btn-block btn-info" >On Destination</button>
+                    <button *ngIf="delivery.onDestination" class="btn btn-block disabled" disabled>On Destination</button>
+                  </div>
+                </div>
+
               </ng-template>
             </ngb-tab>
           </ngb-tabset>
