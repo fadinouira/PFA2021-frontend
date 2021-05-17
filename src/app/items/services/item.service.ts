@@ -14,7 +14,12 @@ export class ItemService {
   private itemsUpdated = new Subject<Item[]>();
 
   requestedItems : Item[] = [];
-  requestedItemsUpdated = new Subject<Item[]>();
+  private requestedItemsUpdated = new Subject<Item[]>();
+
+
+  acceptedItems : Item[] = [];
+  private acceptedItemsUpdated = new Subject<Item[]>();
+
 
 
   private item : Item = null ;
@@ -38,6 +43,15 @@ export class ItemService {
         this.router.navigate(['/delivery/',id]);
       });
     });
+  }
+
+  acceptRequestedItem(itemId : string , delivId : string) {
+    console.log("deliv id:"+ delivId);
+    let request : string = this.url+'/api/deliveries/acceptItem/' + delivId ;
+      this.http.put<{message : string}>(request,{"item" : itemId})
+      .subscribe((result)=>{
+        console.log(result.message);
+      });
   }
 
   addExistedItem(itemId : string , id : string ){
@@ -82,6 +96,8 @@ export class ItemService {
                     item : {
                       id : result.item._id,
                       owner : result.item.owner,
+                      ownerName : result.item.ownerName,
+                      ownerPhoto : result.item.ownerPhoto,
                       name : result.item.name,
                       status : result.item.status,
                       weight : result.item.weight
@@ -91,6 +107,7 @@ export class ItemService {
         .subscribe((result)=>{
             let item : Item = result.item ;
             this.requestedItems.push(item) ;
+            this.requestedItemsUpdated.next(this.requestedItems);
           });
   }
 
@@ -102,7 +119,6 @@ export class ItemService {
   }
 
   clearRequestedItems(){
-    console.log(this.requestedItems);
     this.requestedItems.forEach(element => {
       this.requestedItems.pop(); 
     }); 
@@ -115,6 +131,48 @@ export class ItemService {
     return this.requestedItems;
   }
 
+  //accepted items
+  getAcceptedItems(ids : string[]){
+    this.clearAcceptedItems();
+    ids.forEach(id => {
+      this.getOneAcceptedItem(id);
+    });
+  }
+
+  getOneAcceptedItem(id : string){
+    this.http.get<{message : string,item : any}>(this.url + '/api/items/'+id)
+        .pipe(
+            map((result) => {
+                return {
+                    message : result.message ,
+                    item : {
+                      id : result.item._id,
+                      owner : result.item.owner,
+                      ownerName : result.item.ownerName,
+                      ownerPhoto : result.item.ownerPhoto,
+                      name : result.item.name,
+                      status : result.item.status,
+                      weight : result.item.weight
+                    }
+            };
+        }))
+        .subscribe((result)=>{
+            let item : Item = result.item ;
+            this.acceptedItems.push(item) ;
+            this.acceptedItemsUpdated.next(this.acceptedItems);
+          });
+  }
+
+  clearAcceptedItems(){
+    this.acceptedItems.forEach(element => {
+      this.acceptedItems.pop(); 
+    }); 
+    this.requestedItems = [];
+  }
+
+  getAcceptedItemsList(){
+    return this.acceptedItems;
+  }
 
   getItemsistener(){
     return this.itemsUpdated.asObservable();

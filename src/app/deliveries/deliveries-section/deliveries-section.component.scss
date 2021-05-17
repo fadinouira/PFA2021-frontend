@@ -1,4 +1,11 @@
-
+$blue-darker : #012a4a ;
+$blue-dark: #274C77;
+$blue : #A3CEF1 ;
+$blue-cyan: #51BCD5;
+$blue-default: #6096BA;
+$grey : #8B8C89;
+$white : #E7ECEF ;
+$color-blue: #0000FF;
 
 .card{
   box-shadow: 0 0 30px rgba(0,0,0, .3);
@@ -7,7 +14,7 @@
 }
 
 .card-header{
-  border-radius: 15px 15px 0px 0px; 
+  border-radius: 12px 12px 0px 0px; 
   position: relative;
   height: 150px;
   background-size: cover;
@@ -64,11 +71,11 @@ svg .polygon{
 
 .job-title{
   margin-top: 5px;
-  color: #919191;
+  color: $blue-dark;
 }
 
 .bio{
-  color: #7B7B7B;
+  color: $grey;
 }
 
 .social-accounts{
@@ -87,12 +94,12 @@ svg .polygon{
   width: calc(100% / 2);
   float: left;
   text-align: center;
-  border-left: 1px solid #EBEBEB;
+  border-left: 1px solid $blue-darker;
 }
 .stat .label{
   display: block;
   text-transform: uppercase;
-  color: #95989A;
+  color: $blue-darker;
 }
 
 .stat .value{

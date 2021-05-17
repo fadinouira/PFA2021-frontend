@@ -37,31 +37,26 @@
                       <th scope="col">Client</th>
                       <th scope="col">Parcel</th>
                       <th scope="col">Weight</th>
+                      <th scope="col">Accept</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody >
   
-                    <tr *ngFor="let item of requestedItems">
-                      <td>
-                        <img [src]="delivery.ownerPhoto" class="mr-2" style="width: 20px">
-                        Ahmed Andolsi
+                    <tr *ngFor="let item of requestedItems" class="overflow-auto">
+                      <td class="name">
+                        <img [src]="item.ownerPhoto" class="mr-2" style="width: 20px">
+                        {{item.ownerName}}
                       </td>
                       <td>{{item.name}}</td>
-                      <td>{{item.weight}}</td>
-                    </tr>
-                    <tr class="plus-row" [routerLink]="['/add-item', delivery.id]">
-                      <td></td>
-                      <td class="plus">
-                        <div class="plus">
-                          <i class="fa fa-plus"></i> 
-                        </div>
-                      </td>
-                      <td></td>
-                    </tr>
+                      <td>{{item.weight}} g</td>
+                      <th scope="col" (click)="onAcceptItem(item.id)"><i class="fa fa-plus" style="margin-left: 20%;"></i></th>
+
                     
-  
                   </tbody>
                 </table>
+                <div class="btn btn-info plus btn-block" [routerLink]="['/add-item', delivery.id]">
+                  <i class="fa fa-plus"></i> 
+                </div>
                 
                 
               </ng-template>
@@ -73,42 +68,21 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Country</th>
-                      <th scope="col">Area</th>
-                      <th scope="col">Population</th>
+                      <th scope="col">Client</th>
+                      <th scope="col">Parcel</th>
+                      <th scope="col">Weight</th>
                     </tr>
                   </thead>
                   <tbody>
   
-                    <tr>
-                      <th scope="row">1</th>
+                    <tr *ngFor="let item of acceptedItems" class="overflow-auto">
                       <td>
-                        <img [src]="delivery.ownerPhoto" class="mr-2" style="width: 20px">
-                        Rami el bou
+                        <img [src]="item.ownerPhoto" class="mr-2" style="width: 20px">
+                        {{item.ownerName}}
                       </td>
-                      <td>valise</td>
-                      <td>2Kg</td>
-                    </tr>
-  
+                      <td>{{item.name}}</td>
+                      <td>{{item.weight}} g</td>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>
-                        <img [src]="delivery.ownerPhoto" class="mr-2" style="width: 20px">
-                        Ahmed Andolsi
-                      </td>
-                      <td>valise</td>
-                      <td>2Kg</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>
-                        <img [src]="delivery.ownerPhoto" class="mr-2" style="width: 20px">
-                        Ahmed Andolsi
-                      </td>
-                      <td>valise</td>
-                      <td>2Kg</td>
-                    </tr>
   
                   </tbody>
                 </table>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'app/auth/Services/auth.service';
 import { Subscription } from 'rxjs';
 import { Item } from '../services/item.model';
 import { ItemService } from '../services/item.service';
@@ -27,7 +28,7 @@ export class AddItemComponent implements OnInit {
     weightClass ;
     weightError ;
 
-  constructor(private activatedRoute: ActivatedRoute, private db : ItemService) { }
+  constructor(private activatedRoute: ActivatedRoute, private db : ItemService,private auth : AuthService) { }
 
   ngOnInit(): void {
     this.isLoading = true ;
@@ -78,9 +79,12 @@ export class AddItemComponent implements OnInit {
   }
 
   addItem() {
+    let user = this.auth.getUser() ;
     const item : Item = {
       id : null ,
       owner : null,
+      ownerName : user.name,
+      ownerPhoto : user.image,
       name : this.form.get('name').value,
       status : 0,
       weight :  this.form.get('weight').value,
