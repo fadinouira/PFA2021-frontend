@@ -22,7 +22,7 @@ export class ItemService {
 
 
 
-  private item : Item = null ;
+  private item : Item  ;
   private itemUpdated = new Subject<Item>();
 
   private url = 'http://localhost:3200';
@@ -34,15 +34,22 @@ export class ItemService {
     this.http.post<{message : string,item : Item }>(this.url+'/api/items', item)
     .subscribe((response)=>{
       const item = response.item ;
+      this.item = item ;
       this.items.push(item);
       this.itemsUpdated.next([...this.items]);
-      let request : string = this.url+'/api/deliveries/addItem/' + id ;
+      if(id != "") {
+        let request : string = this.url+'/api/deliveries/addItem/' + id ;
       this.http.put<{message : string}>(request,{"item" : item.id})
       .subscribe((result)=>{
         console.log(result.message);
         this.router.navigate(['/delivery/',id]);
       });
-    });
+      }
+    });    
+  }
+
+  getAddedItem() {
+    return this.item ;
   }
 
   acceptRequestedItem(itemId : string , delivId : string) {

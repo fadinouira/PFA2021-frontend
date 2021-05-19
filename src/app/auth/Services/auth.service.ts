@@ -64,7 +64,8 @@ export class AuthService {
             "name" : response.connectedUser.name ,
             "image" : response.connectedUser.image,
             "phone" : response.connectedUser.phone,
-            "email" : response.connectedUser.email
+            "email" : response.connectedUser.email,
+            "type" : response.connectedUser.type
           }
 
           this.connectedUserListener.next(this.connectedUser);

@@ -29,10 +29,13 @@ import { CommonModule } from '@angular/common';
 import { NouisliderModule } from 'ng2-nouislider';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { ComponentsComponent } from './deliveries/components.component';
+import { ComponentsComponent } from './home/components.component';
 import { DeliveriesSectionComponent } from './deliveries/deliveries-section/deliveries-section.component';
 import { AddDelivComponent } from './deliveries/add-deliv/add-deliv.component';
 import { DeliveryComponent } from './deliveries/delivery/delivery.component';
+import { DemandesSectionComponent } from './demandes/demandes-section/demandes-section.component';
+import { AddDemandeComponent } from './demandes/add-demande/add-demande.component';
+import { DemandeComponent } from './demandes/demande/demande.component';
 
 
 @NgModule({
@@ -50,7 +53,10 @@ import { DeliveryComponent } from './deliveries/delivery/delivery.component';
     DeliveriesSectionComponent,
     AddDelivComponent,
     DeliveryComponent,
-    LoaderComponent
+    LoaderComponent,
+    DemandesSectionComponent,
+    AddDemandeComponent,
+    DemandeComponent,
   ],
   imports: [
     BrowserModule,

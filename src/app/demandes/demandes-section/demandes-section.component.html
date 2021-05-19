@@ -1,0 +1,41 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div  *ngIf="!isLoading" class="row" style="margin :0 ;margin-top :30px;" >
+    <div class="col-md-3 col-sm-6 " *ngFor="let demande of demandes;">
+      <div class="card" >
+
+        <div class="card-header" [ngStyle]="{'background-image': 'url(' + demande.ownerPhoto + ')' }">
+          <div class="card-header-slanted-edge">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
+            <a href="#" class="btn-follow red  "></a>
+          </div>
+        </div>
+  
+        <div class="card-body" >
+          <h2 class="name">{{demande.ownerName}}</h2>
+          <h4 class="job-title">Client</h4>
+          <div class="bio">{{demande.wantedArrivalDate.toLocaleDateString()}}</div>
+          <div class="social-accounts">
+            <a href="#"><button type="button" class="btn btn-info btn-just-icon"><i class="fa fa-phone"></i></button></a>
+            <a href="#"><button type="button" class="btn btn-info btn-just-icon"><i class="fa fa-envelope"></i></button></a>
+            <a [routerLink]="['/demande', demande.id]" href="#"><button type="button" class="btn btn-info btn-just-icon"><i class="fa fa-angle-double-right"></i></button></a>
+          </div>
+        </div>
+  
+        <div class="card-footer">
+          <div class="stats">
+              <div class="stat">
+                <span class="label">From</span>
+                <span class="value">{{demande.originAddress}}</span>
+              </div>
+              <div class="stat">
+                <span class="label">To</span>
+                <span class="value">{{demande.deliveryAddress}}</span>
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+<mat-paginator class="paginator pag" [length]="this.totalDemandes" [pageSize]="this.postPerPage" [pageSizeOptions]="this.pageSizeOption" [pageIndex]="this.currentPage - 1" (page)="onChangePage($event)" >
+</mat-paginator>

@@ -9,7 +9,8 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
     ngb-progressbar {
         margin-top: 5rem;
     }
-    `]
+    `],
+    styleUrls: ['comonents.component.scss']
 })
 
    

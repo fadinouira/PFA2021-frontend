@@ -1,0 +1,87 @@
+<section class="coloredSection">
+    <app-loader *ngIf="isLoading"></app-loader>
+    <div *ngIf="!isLoading" class="container {{this.status}} " id="container">
+        <div class="form-container sign-up-container card">
+            <form action="#" [formGroup]="form" (submit)="addDemande()">
+                <h1>Add a delivery offer</h1>
+                
+                
+                <input
+                    formControlName="from"
+                    class="input"
+                    type="text"
+                    placeholder="From"
+                />
+
+                <input
+                    formControlName="to"
+                    class="input"
+                    type="text"
+                    placeholder="To"
+                />
+
+                <input
+                    formControlName="date"
+                    class="input input-daterange form-control ng-pristine ng-valid ng-touched"
+                    placeholder="Date"
+                    type="date"
+                />
+
+                <input 
+                    formControlName="arrivalTime"
+                    class="input" 
+                    type="time" 
+                />
+                <br>
+
+                <button type="submit" class="btn btn-round btn-info btn-block">Create</button>
+
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#" [formGroup]="itemForm"  (submit)="addItem()">
+                <h1>Add your item</h1>
+                <input
+                    formControlName="name"
+                    name="name"
+                    class="{{nameClass}}" 
+                    type="text" 
+                    placeholder="{{nameError}}" 
+                />
+                <input 
+                    formControlName="weight"
+                    name="weight"
+                    class="{{weightClass}}" 
+                    type="number"
+                    placeholder="{{weightError}}" 
+                />
+                <button type="submit" hidden #next></button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Chose you delivery path</h1>
+                    <p>Click twice to select a city</p>
+                    <br>
+                    <div class="map-card">
+                        
+                    </div>
+                    <p>Or</p>
+                    <br>
+                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(0)">Go back</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>One more step</h1>
+                    <p>Click next to complete your demande</p>
+                    <br>
+                    
+                    <br>
+                    <button class="ghost btn btn-round btn-outline btn-block"  (click)="onSwitch(1);next.click()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+

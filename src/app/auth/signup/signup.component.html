@@ -1,5 +1,5 @@
-<app-loader *ngIf="isLoading"></app-loader>
 <section class="coloredSection">
+    <app-loader *ngIf="isLoading"></app-loader>
     <div *ngIf="!isLoading" class="container {{this.status}} " id="container">
         <div class="form-container sign-up-container card">
             <form action="#" [formGroup]="form" (submit)="onSubmit()">

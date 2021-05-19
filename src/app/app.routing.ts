@@ -3,7 +3,7 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ComponentsComponent } from './deliveries/components.component';
+import { ComponentsComponent } from './home/components.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { LandingComponent } from './examples/landing/landing.component';
 
@@ -16,7 +16,11 @@ import { AuthGuard } from './auth/Services/auth.guard';
 
 import { AddDelivComponent } from "./deliveries/add-deliv/add-deliv.component";
 import { DeliveryComponent } from './deliveries/delivery/delivery.component';
+
 import { AddItemComponent } from './items/add-item/add-item.component';
+
+import { AddDemandeComponent } from './demandes/add-demande/add-demande.component';
+import { DemandeComponent } from './demandes/demande/demande.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,7 +37,13 @@ const routes: Routes =[
 
     { path: 'add-item/:id',        component: AddItemComponent  },
     { path: 'add-item',        component: AddItemComponent  },
+    
 
+    { path: 'add-demande',        component: AddDemandeComponent  },
+    { path: 'demande/:id',        component: DemandeComponent  },
+
+
+    
 
 
 ];
