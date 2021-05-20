@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from 'app/auth/Services/auth.service';
 
 @Component({
     selector: 'app-components',
@@ -16,9 +17,9 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
    
 
 export class ComponentsComponent implements OnInit {
+    user : any ;
 
-
-    constructor(config: NgbCarouselConfig ) {
+    constructor(config: NgbCarouselConfig, private auth : AuthService ) {
         config.interval = 5000;
         config.wrap = false;
         config.keyboard = false;
@@ -29,7 +30,7 @@ export class ComponentsComponent implements OnInit {
    
 
     ngOnInit() {
-      
+      this.user = this.auth.getUser() ;
     }
 
 }

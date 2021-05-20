@@ -9,11 +9,18 @@ import { rejects } from 'assert';
 @Injectable({providedIn: 'root'})
 export class AuthService {
   private token : string;
+  private tokenTimer : any;
+
   private authStatusListener = new Subject<boolean>();
   private authStatus = false;
-  private tokenTimer : any;
+
   private connectedUser : any;
   private connectedUserListener = new Subject<any>();
+
+  private users : any = [] ;
+  private usersListener = new Subject<any>();
+
+
   private url = 'http://localhost:3200';
   constructor(private http : HttpClient, private router : Router){}
 
@@ -117,6 +124,7 @@ export class AuthService {
     localStorage.setItem('image', user.image);
     localStorage.setItem('phone', user.phone);
     localStorage.setItem('email', user.email);
+    localStorage.setItem('type', user.type);
     localStorage.setItem('expirationDate',expirationDate.toISOString());
     console.log(localStorage);
   }
@@ -152,7 +160,9 @@ export class AuthService {
       name : localStorage.getItem("name"),
       image : localStorage.getItem("image"),
       phone : localStorage.getItem("phone"),
-      email : localStorage.getItem("email")
+      email : localStorage.getItem("email"),
+      type : localStorage.getItem("type")
+
     }
     console.log(user);
     console.log("this is the user");
@@ -165,5 +175,31 @@ export class AuthService {
 
   public getUserNameListener(){
     return this.connectedUserListener ;
+  }
+
+  private getOneUser(id : string) {
+    this.http.get<{message : string,user : any}>(this.url + '/api/auth/'+id)
+        .subscribe((res)=>{
+            let user = res.user ;
+            // this.user = user ;
+            // this.userUpdated.next(this.user);
+            this.users.push(user) ;
+            this.usersListener.next(this.users);
+          });
+  }
+
+  public getUsers(ids : string[]) {
+    this.clearUsers();
+    ids.forEach(id => {
+      this.getOneUser(id);
+    });
+  }
+
+  public getUsersListener() {
+    return this.usersListener.asObservable();
+  }
+
+  private clearUsers(){
+    this.users = [];
   }
 }

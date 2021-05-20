@@ -78,38 +78,46 @@ export class DemandeService {
     });
   }
 
-  // getOne(id : string) {
-  //   this.http.get<{message : string,demande : any}>(this.url + '/api/deliveries/'+id)
-  //     .subscribe(response =>{
-  //       this.demande =  {
-  //         id : response.demande._id ,
-  //         owner : response.demande.owner,
-  //         ownerPhoto : response.demande.ownerPhoto,
-  //         ownerPhone : response.demande.ownerPhone,
-  //         ownerEmail : response.demande.ownerEmail,
-  //         ownerName : response.demande.ownerName, 
-  //         originAddress : response.demande.originAddress,
-  //         deliveryAddress : response.demande.deliveryAddress,
-  //         departDate : new Date(response.demande.departDate),
-  //         expectedArrivalDate : new Date(response.demande.expectedArrivalDate),
-  //         onRoad : response.demande.onRoad,
-  //         onDestination : response.demande.onDestination,
-  //         acceptedItems : response.demande.acceptedItems,
-  //         listedItems : response.demande.listedItems,
-  //       } ;
-  //       this.demandeUpdated.next(this.demande);
-  //     });
-  //   }
+  getOne(id : string) {
+    this.http.get<{message : string,demande : any}>(this.url + '/api/demandes/'+id)
+      .subscribe(res =>{
+        console.log(res);
+        this.demande =  {
+          id : res.demande._id ,
+          owner : res.demande.owner,
+          ownerName : res.demande.ownerName, 
+          ownerPhoto : res.demande.ownerPhoto,
+          ownerPhone : res.demande.ownerPhone,
+          ownerEmail : res.demande.ownerEmail,
+          originAddress : res.demande.originAddress ,
+          deliveryAddress :  res.demande.deliveryAddress ,
+          wantedArrivalDate : new Date(res.demande.wantedArrivalDate),
+          item : res.demande.item ,
+          itemShipped :  res.demande.itemShipped ,
+          itemDelivered :  res.demande.itemDelivered ,
+          provider: res.demande.provider ,
+          listedProviders : res.demande.listedProviders 
+        } ;
+        this.demandeUpdated.next(this.demande);
+      });
+  }
 
-  // getDemandeListener(){
-  //   return this.demandeUpdated.asObservable();
-  // }
+  getDemandeListener(){
+    return this.demandeUpdated.asObservable();
+  }
 
-  // onRoad(id : string,req :any){
-  //   this.http.put<{message : string}>(this.url + '/api/deliveries/onRoad/'+id,req)
-  //     .subscribe(response =>{
-  //       console.log(response.message);
-  //     });
-  // }
+  request(id : string) {
+    this.http.get<{message : string}>('http://localhost:3200/api/demandes/takeJob/'+id)
+    .subscribe((response)=>{
+      console.log(response.message);
+    });
+  }
+
+  accept(id : string ,transporter : string,item : string) {
+    this.http.put<{message : string}>('http://localhost:3200/api/demandes/acceptJob/'+id , {"provider" : transporter, "item" : item})
+    .subscribe((response)=>{
+      console.log(response.message);
+    });
+  }
 
 }

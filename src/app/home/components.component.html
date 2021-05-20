@@ -54,8 +54,8 @@
       </div>
       <div class="col-md-8 col-lg-8">
        
-        <app-deliveries-section class="content-center"></app-deliveries-section>
-        <app-demandes-section class="content-center" ></app-demandes-section>
+        <app-deliveries-section *ngIf="user.type == 'client'" class="content-center"></app-deliveries-section>
+        <app-demandes-section  *ngIf="user.type != 'transporter'" class="content-center" ></app-demandes-section>
 
 
       </div>

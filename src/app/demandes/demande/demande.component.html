@@ -1,1 +1,84 @@
-<p>demande works!</p>
+<section class="coloredSection" >
+    <app-loader *ngIf="isLoading"></app-loader>  
+    <div class="container" *ngIf="!isLoading">
+  
+      <div class="product-image" id="left">
+  
+        <img 
+        src={{demande.ownerPhoto}} 
+        class="img-circle img-no-padding img-responsive img" 
+        alt="Rounded Image" 
+        >   
+        
+        <h1 class="info">{{demande.ownerName}}</h1>
+        <a href="#"><i class="fa fa-phone"></i> {{demande.ownerPhone}}</a>
+        <a href="#"><i class="fa fa-envelope"></i> {{demande.ownerEmail}}</a>
+  
+        <div class="map-card">
+                          
+        </div>
+        
+      </div>
+          
+      <div class="product-details" id="right">
+        <header>
+          <h1 class="title">{{demande.originAddress}} To {{demande.deliveryAddress}}</h1>
+          <br>
+          <div class="rounded-nav">
+            <ngb-tabset *ngIf="owner">
+              <ngb-tab>
+                <ng-template ngbTabTitle><h3>Requested Transporters</h3></ng-template>
+                <ng-template ngbTabContent>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Transporter</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Accept</th>
+                      </tr>
+                    </thead>
+                    <tbody >
+    
+                      <tr *ngFor="let user of users" class="overflow-auto">
+                        <td class="name" >
+                          <img [src]="user.image" class="mr-2" style="width: 22px;height:22px ;border-radius : 15px">
+                          {{user.name}}
+                        </td>
+                        <td>{{user.city}}</td>
+                        <td>{{user.phone}}</td>
+                        <th *ngIf="(!demande.provider) && owner" scope="col" ><i class="fa fa-plus add" style="margin-left: 20%;cursor:pointer;color:#51BCD5" (click)="onAccept(user.id)"></i></th>
+                        <th *ngIf="(user.id == demande.provider) && owner" scope="col"><i class="fa fa-check check" style="margin-left: 20% ; color :green"></i></th>
+  
+                      
+                    </tbody>
+                  </table>
+                  
+                  
+                </ng-template>
+              </ngb-tab>
+            </ngb-tabset> 
+          </div>
+          <div class="item">
+            <h3>Item: {{item.name}}</h3>
+            <h3>weight: {{item.weight}} g</h3>
+          </div>
+        </header>
+        <div class="controls">
+          <div class="size">
+            <h4 class="">Date: <br>{{demande.wantedArrivalDate.toLocaleDateString()}}</h4>
+          </div>
+          <div class="size">
+            <h4 class="">Before: <br>{{demande.wantedArrivalDate.toLocaleTimeString('it-IT')}}</h4>
+          </div>
+        </div>
+        <div *ngIf="!owner">
+            <br><br>
+            <button class="btn btn-info btn-round btn-block" (click)="onRequest()">Request</button>
+        </div>
+
+      </div>
+      
+    </div>
+  
+  </section>

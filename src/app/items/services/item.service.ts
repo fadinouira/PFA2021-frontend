@@ -113,6 +113,8 @@ export class ItemService {
         }))
         .subscribe((result)=>{
             let item : Item = result.item ;
+            this.item = item ;
+            this.itemUpdated.next(this.item);
             this.requestedItems.push(item) ;
             this.requestedItemsUpdated.next(this.requestedItems);
           });
@@ -123,6 +125,10 @@ export class ItemService {
     ids.forEach(id => {
       this.getOneItem(id);
     });
+  }
+
+  getItemListener() {
+    return this.itemUpdated.asObservable() ;
   }
 
   clearRequestedItems(){
